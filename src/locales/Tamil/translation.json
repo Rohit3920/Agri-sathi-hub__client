@@ -1,0 +1,15 @@
+{
+    "agri sathi hub": "அக்ரி சாத்தி ஹப்",
+    "login": "உள்நுழை",
+    "logout": "வெளியேறு",
+    "register": "பதிவுசெய்",
+    "Navbar": {
+      "home": "முகப்பு",
+      "machine Rentals": "இயந்திர வாடகை",
+      "labor Hire": "தொழிலாளர் வேலைக்கு",
+      "eGov Services": "இ-அரசு சேவைகள்",
+      "support": "ஆதரவு",
+      "about": "எங்களைப் பற்றி",
+      "contact": "தொடர்பு"
+    }
+  }

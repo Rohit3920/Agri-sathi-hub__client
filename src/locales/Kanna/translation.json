@@ -1,0 +1,15 @@
+{
+  "agri sathi hub": "ಕೃಷಿ ಸಾಥಿ ಹಬ್",
+  "login": "ಲಾಗಿನ್",
+  "logout": "ಲಾಗೌಟ್",
+  "register": "ನೋಂದಾಯಿಸಿ",
+  "Navbar": {
+    "home": "ಮುಖಪುಟ",
+    "machine Rentals": "ಯಂತ್ರಗಳ ಬಾಡಿಗೆ",
+    "labor Hire": "ಕಾರ್ಮಿಕ ನೇಮಕಾತಿ",
+    "eGov Services": "ಇ-ಸರ್ಕಾರಿ ಸೇವೆಗಳು",
+    "support": "ಬೆಂಬಲ",
+    "about": "ನಮ್ಮ ಬಗ್ಗೆ",
+    "contact": "ಸಂಪರ್ಕ"
+    }
+}

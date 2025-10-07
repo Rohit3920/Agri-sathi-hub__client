@@ -1,0 +1,16 @@
+{
+    "agri sathi hub": "कृषि साथी केंद्र",
+    "login": "लॉग इन करें",
+    "logout": "लॉगआउट",
+    "register": "रजिस्टर",
+
+    "Navbar": {
+        "home": "मुख्य",
+        "machine Rentals": "मशीन किराये पर",
+        "labor Hire": "श्रम किराया",
+        "eGov Services": "ई-गवर्नेंस सेवाएँ",
+        "support": "सहायता",
+        "about": "के बारे में",
+        "contact": "संपर्क"
+    }
+}

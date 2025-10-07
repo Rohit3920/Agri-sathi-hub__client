@@ -1,0 +1,15 @@
+{
+  "agri sathi hub": "অ্যাগ্ৰি সাথী হাব",
+  "login": "লগইন",
+  "logout": "লগআউট",
+  "register": "নিবন্ধন",
+  "Navbar": {
+    "home": "হোম",
+    "machine Rentals": "যন্ত্র ভাড়া",
+    "labor Hire": "শ্রমিক নিয়োগ",
+    "eGov Services": "ই-গভ সার্ভিসেস",
+    "support": "সহায়তা",
+    "about": "আমাদের সম্পর্কে",
+    "contact": "যোগাযোগ"
+  }
+}
