@@ -1,0 +1,15 @@
+{
+    "agri sathi hub": "कृषि साहाय्यक केन्द्रम्",
+    "login": "प्रवेशः",
+    "logout": "निर्गमः",
+    "register": "पञ्जीकरणम्",
+    "Navbar": {
+      "home": "गृहम्",
+      "machine Rentals": "यन्त्रभाटकम्",
+      "labor Hire": "श्रमभाटकम्",
+      "eGov Services": "ई-शासनसेवानि",
+      "support": "समर्थनम्",
+      "about": "अस्माकं विषये",
+      "contact": "सम्पर्कः"
+    }
+  }

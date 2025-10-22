@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
+import './language/i18n';
+import { useTranslation } from 'react-i18next';
+import LanguageChange from './language/languageChange';
 
 export default function Navbar() {
     const [theme, setTheme] = useState("light");
+    const { t } = useTranslation();
+    // const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme") || "light";
@@ -36,12 +41,12 @@ export default function Navbar() {
             </div>
 
             <div className="hidden md:flex space-x-8 text-gray-600 dark:text-gray-300 transition-colors">
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">Home</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">Machine Rental</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">Labor Hiring</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">eGov Service</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">Support</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">About</a>
+                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.home')}</a>
+                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.machine Rentals')}</a>
+                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.labor Hire')}</a>
+                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.eGov Services')}</a>
+                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.support')}</a>
+                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.about')}</a>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -51,11 +56,12 @@ export default function Navbar() {
                 >
                     {theme === "light" ? <Moon size={18} /> : <Sun className="text-yellow-500" size={18} />}
                 </button>
+                <LanguageChange />
                 <button className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors">
-                    Login
+                    {t('login')}
                 </button>
                 <button className="px-4 py-1 border border-gray-300 text-gray-600 dark:text-gray-300 dark:border-gray-500 rounded-full hover:bg-purple-600 hover:text-white transition-colors">
-                    Register
+                    {t('register')}
                 </button>
             </div>
         </nav>

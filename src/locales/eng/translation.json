@@ -1,0 +1,17 @@
+{
+    "agri sathi hub": "AGRI SATHI HUB",
+    "login" : "Login",
+    "logout" : "Logout",
+    "register" : "Register",
+
+
+    "Navbar" : {
+        "home": "Home",
+        "machine Rentals": "Machine Rentals",
+        "labor Hire": "Labor Hire",
+        "eGov Services": "eGov Services",
+        "support": "Support",
+        "about": "About",
+        "contact": "Contact"
+    }
+}
