@@ -13,5 +13,54 @@
         "support": "Support",
         "about": "About",
         "contact": "Contact"
+    },
+
+    "Sidebar": {
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "settings": "Settings",
+        "help": "Help",
+        "logout": "Logout",
+        "Are-you-sure": "Are you sure?",
+        "Do-you-want-to-log-out": "Do you want to log out?",
+        "Yes-log-me-out": "Yes, log me out!",
+        "Logged-out-successfully": "Logged out successfully!",
+        "Home": "Home",
+        "Profile": "Profile"
+    },
+
+    "loginComponent" : {
+        "user-login" : "User Login",
+        "otp-login" : "OTP Login",
+        "password-login" : "Password Login",
+        "sign-up" : "Sign up",
+        "dont-have-an-account": "Don’t have an account?",
+
+        "otp": {
+            "mobile-number": "Mobile Number",
+            "enter-mobile-number": "Enter your mobile number",
+            "send-otp": "Send OTP",
+            "enter-otp": "Enter OTP",
+            "otp-placeholder": "Enter OTP",
+            "verify-otp": "Verify OTP",
+            "didnt-receive-OTP?": "Didn’t receive OTP?",
+            "resend": "Resend",
+
+            "please-enter-a-valid-10-digit-mobile-number": "Please enter a valid 10-digit mobile number 📱",
+            "OTP-verified-successfully": "OTP verified successfully 🎉",
+            "Invalid-OTP-Try-again": "Invalid OTP ❌ Try again",
+            "OTP-sent-successfully": "OTP sent successfully ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "Please fill in all fields ❌",
+            "Login-successful": "✅ Login successful!",
+            "Invalid-credentials": "Invalid credentials ⚠️",
+            "email-or-phone": "Email or Phone Number",
+            "enter-email-or-phone": "Enter your email or phone number",
+            "password" : "Password",
+            "enter-password": "Enter your password",
+            "login-button": "Login"
+        }
     }
 }
