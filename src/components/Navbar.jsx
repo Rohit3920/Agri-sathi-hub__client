@@ -3,8 +3,11 @@ import { Moon, Sun } from "lucide-react";
 import './language/i18n';
 import { useTranslation } from 'react-i18next';
 import LanguageChange from './language/languageChange';
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+    const userId = localStorage.getItem('userId');
+    const navigate = useNavigate();
     const [theme, setTheme] = useState("light");
     const { t } = useTranslation();
     // const { t, i18n } = useTranslation();
@@ -41,12 +44,12 @@ export default function Navbar() {
             </div>
 
             <div className="hidden md:flex space-x-8 text-gray-600 dark:text-gray-300 transition-colors">
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.home')}</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.machine Rentals')}</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.labor Hire')}</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.eGov Services')}</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.support')}</a>
-                <a href="#" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.about')}</a>
+                <Link to="/" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.home')}</Link>
+                <Link to="/machine-rentals" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.machine Rentals')}</Link>
+                <Link to="/labor-hire" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.labor Hire')}</Link>
+                <Link to="/egov-services" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.eGov Services')}</Link>
+                <Link to="/support" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.support')}</Link>
+                <Link to="/about" className="hover:text-purple-600 dark:hover:text-white">{t('Navbar.about')}</Link>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -57,12 +60,29 @@ export default function Navbar() {
                     {theme === "light" ? <Moon size={18} /> : <Sun className="text-yellow-500" size={18} />}
                 </button>
                 <LanguageChange />
-                <button className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors">
-                    {t('login')}
-                </button>
-                <button className="px-4 py-1 border border-gray-300 text-gray-600 dark:text-gray-300 dark:border-gray-500 rounded-full hover:bg-purple-600 hover:text-white transition-colors">
-                    {t('register')}
-                </button>
+                {userId ? (
+                    <>
+                        {/* profile small icon */}
+
+                        {/* Logged in state */}
+                        <button onClick={() => {
+                            localStorage.removeItem('token');
+                            localStorage.removeItem('userId');
+                            navigate('/login');
+                        }} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                            {t('logout')}
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <button onClick={() => navigate("/login")} className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors">
+                            {t('login')}
+                        </button>
+                        <button onClick={() => navigate("/signup")} className="px-4 py-1 border border-gray-300 text-gray-600 dark:text-gray-300 dark:border-gray-500 rounded-full hover:bg-purple-600 hover:text-white transition-colors">
+                            {t('register')}
+                        </button>
+                    </>
+                )}
             </div>
         </nav>
     );
