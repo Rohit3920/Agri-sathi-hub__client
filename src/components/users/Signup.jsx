@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import api from "../../utils/api";
+import { useTranslation } from 'react-i18next';
 
 export default function Signup() {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -97,16 +99,16 @@ export default function Signup() {
         <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4 transition-colors duration-300">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-lg p-6 sm:p-8">
                 <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">
-                    Create Account
+                    {t("SignupComponent.create-an-account")}
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Username */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                            Username
+                            {t("SignupComponent.username")}
                         </label>
-                        <input type="text" name="username" placeholder="Enter username" value={formData.username} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
+                        <input type="text" name="username" placeholder={t("SignupComponent.enter-username")} value={formData.username} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
                             required
                         />
                     </div>
@@ -114,9 +116,9 @@ export default function Signup() {
                     {/* Email */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                            Email
+                            {t("SignupComponent.email")}
                         </label>
-                        <input type="email" name="email" placeholder="Enter email" value={formData.email} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
+                        <input type="email" name="email" placeholder={t("SignupComponent.enter-email")} value={formData.email} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
                             required
                         />
                     </div>
@@ -124,9 +126,9 @@ export default function Signup() {
                     {/* Mobile */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                            Mobile Number
+                            {t("SignupComponent.mobile-number")}
                         </label>
-                        <input type="tel" name="MobileNum" placeholder="Enter mobile number" value={formData.MobileNum} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
+                        <input type="tel" name="MobileNum" placeholder={t("SignupComponent.enter-mobile-number")} value={formData.MobileNum} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
                             required
                         />
                     </div>
@@ -134,9 +136,9 @@ export default function Signup() {
                     {/* Password */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                            Password
+                            {t("SignupComponent.password")}
                         </label>
-                        <input type="password" name="password" placeholder="Enter password" value={formData.password} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-green-400 outline-none"
+                        <input type="password" name="password" placeholder={t("SignupComponent.enter-password")} value={formData.password} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-green-400 outline-none"
                             required
                         />
                     </div>
@@ -144,9 +146,9 @@ export default function Signup() {
                     {/* Confirm Password */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                            Confirm Password
+                            {t("SignupComponent.confirm-password")}
                         </label>
-                        <input type="password" name="confirmPassword" placeholder="Re-enter password" value={formData.confirmPassword} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-green-400 outline-none"
+                        <input type="password" name="confirmPassword" placeholder={t("SignupComponent.enter-confirm-password")} value={formData.confirmPassword} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-green-400 outline-none"
                             required
                         />
                     </div>
@@ -157,16 +159,16 @@ export default function Signup() {
                     <div className="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                                Street
+                                {t("SignupComponent.street")}
                             </label>
-                            <input type="text" name="street" placeholder="Street" value={formData.address.street} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                            <input type="text" name="street" placeholder={t("SignupComponent.enter-street")} value={formData.address.street} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                                City
+                                {t("SignupComponent.city")}
                             </label>
-                            <input type="text" name="city" placeholder="City" value={formData.address.city} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                            <input type="text" name="city" placeholder={t("SignupComponent.enter-city")} value={formData.address.city} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                             />
                         </div>
                     </div>
@@ -175,34 +177,34 @@ export default function Signup() {
                     <div className="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                                Sub-District / Taluka
+                                {t("SignupComponent.sub-district-or-taluka")}
                             </label>
-                            <input type="text" name="subDistrict" placeholder="Sub-District / Taluka" value={formData.address.subDistrict} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                            <input type="text" name="subDistrict" placeholder={t("SignupComponent.enter-sub-district-or-taluka")} value={formData.address.subDistrict} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                             />
                         </div>
                         <div>
                             <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                                District
+                                {t("SignupComponent.district")}
                             </label>
-                            <input type="text" name="district" placeholder="District" value={formData.address.district} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                            <input type="text" name="district" placeholder={t("SignupComponent.enter-district")} value={formData.address.district} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                             />
                         </div>
                     </div>
 
                     <div className="grid sm:grid-cols-3 gap-4">
-                        <input type="text" name="state" placeholder="State" value={formData.address.state} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                        <input type="text" name="state" placeholder={t("SignupComponent.enter-state")} value={formData.address.state} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                         />
 
-                        <input type="text" name="zipCode" placeholder="ZIP Code" value={formData.address.zipCode} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                        <input type="text" name="zipCode" placeholder={t("SignupComponent.enter-zip-code")} value={formData.address.zipCode} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                         />
-                        <input type="text" name="country" placeholder="Country" value={formData.address.country} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
-                        />
+                        <input type="text" name="country" placeholder={t("SignupComponent.enter-country")} value={formData.address.country} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+                        disabled/>
                     </div>
 
                     {/* Address Type */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
-                            Address Type
+                            {t("SignupComponent.address-type")}
                         </label>
                         <select
                             name="addressType"
@@ -210,8 +212,8 @@ export default function Signup() {
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-400"
                         >
-                            <option value="Permanent">Permanent</option>
-                            <option value="Current">Current</option>
+                            <option value="Permanent">{t("SignupComponent.permanent")}</option>
+                            <option value="Current">{t("SignupComponent.current")}</option>
                         </select>
                     </div>
 
@@ -220,7 +222,7 @@ export default function Signup() {
                         type="submit"
                         className="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 transition-colors"
                     >
-                        Sign Up
+                        {t("SignupComponent.sign-up-button")}
                     </button>
                 </form>
             </div>
