@@ -1,15 +1,105 @@
 {
-  "agri sathi hub": "एग्री साथी हब",
-  "login": "लाग इन",
-  "logout": "लाग आउट",
-  "register": "रजिस्टर",
-  "Navbar": {
-    "home": "घरु",
-    "machine Rentals": "मशीन किराए ते",
-    "labor Hire": "लेबर किराए ते",
-    "eGov Services": "ई-सरकारी सेवाऊं",
-    "support": "सपोरट",
-    "about": "असांजे बाबत",
-    "contact": "संपर्क"
-  }
+    "agri sathi hub": "آگري ساٿي حب",
+    "login" : "لاگ ان",
+    "logout" : "لاگ آئوٽ",
+    "register" : "رجسٽر",
+
+
+    "Navbar" : {
+        "home": "گهر",
+        "machine Rentals": "مشينري ڪرائي تي ڏيڻ",
+        "labor Hire": "مزدوري",
+        "eGov Services": "eGov خدمتون",
+        "support": "حمايت",
+        "about": "بابت",
+        "contact": "رابطو"
+    },
+
+    "Sidebar": {
+        "dashboard": "ڊيش بورڊ",
+        "profile": "پروفائل",
+        "settings": "سيٽنگون",
+        "help": "مدد",
+        "logout": "لاگ آئوٽ",
+        "Are-you-sure": "ڇا توهان کي پڪ آهي؟",
+        "Do-you-want-to-log-out": "ڇا توهان لاگ آئوٽ ٿيڻ چاهيو ٿا؟",
+        "Yes-log-me-out": "ها، مون کي لاگ آئوٽ ڪريو!",
+        "Logged-out-successfully": "ڪاميابي سان لاگ آئوٽ ٿيو!",
+        "Home": "گهر",
+        "Profile": "پروفائل"
+    },
+
+    "loginComponent" : {
+        "user-login" : "استعمال ڪندڙ لاگ ان",
+        "otp-login" : "OTP لاگ ان",
+        "password-login" : "پاسورڊ لاگ ان",
+        "sign-up" : "سائن اپ ڪريو",
+        "dont-have-an-account": "اڪائونٽ ناهي؟",
+
+        "otp": {
+            "mobile-number": "موبائل نمبر",
+            "enter-mobile-number": "پنهنجو موبائل نمبر داخل ڪريو",
+            "send-otp": "OTP موڪليو",
+            "enter-otp": "OTP داخل ڪريو",
+            "otp-placeholder": "OTP داخل ڪريو",
+            "verify-otp": "OTP جي تصديق ڪريو",
+            "didnt-receive-OTP?": "OTP نه مليو؟",
+            "resend": "ٻيهر موڪليو",
+
+            "please-enter-a-valid-10-digit-mobile-number": "مھرباني ڪري ھڪ صحيح 10 عددي موبائل نمبر داخل ڪريو. 📱",
+            "OTP-verified-successfully": "OTP ڪاميابي سان تصديق ڪئي وئي🎉",
+            "Invalid-OTP-Try-again": "غلط OTP ❌ ٻيهر ڪوشش ڪريو",
+            "OTP-sent-successfully": "OTP ڪاميابيءَ سان موڪليو ويو ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "مھرباني ڪري سڀ خانا ڀريو. ❌",
+            "Login-successful": "✅ لاگ ان ڪامياب!",
+            "Invalid-credentials": "غلط سندون ⚠️",
+            "email-or-phone": "اي ميل يا فون نمبر",
+            "enter-email-or-phone": "پنهنجو اي ميل يا فون نمبر داخل ڪريو",
+            "password" : "پاسورڊ",
+            "enter-password": "پنهنجو پاسورڊ داخل ڪريو",
+            "login-button": "لاگ ان"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "اڪائونٽ ٺاهيو",
+        "username": "يوزر نالو",
+        "enter-username": "پنهنجو يوزر نالو داخل ڪريو",
+        "email": "اي ميل",
+        "enter-email": "پنھنجي اي ميل داخل ڪريو",
+        "mobile-number": "موبائل نمبر",
+        "enter-mobile-number": "پنهنجو موبائل نمبر داخل ڪريو",
+        "password": "پاسورڊ",
+        "enter-password": "پنهنجو پاسورڊ داخل ڪريو",
+        "confirm-password": "پاس ورڊ جي تصديق ڪريو",
+        "enter-confirm-password": "پنهنجو پاسورڊ ٻيهر داخل ڪريو",
+        "street": "گهٽي",
+        "enter-street": "پنهنجي گهٽي ۾ داخل ٿيو",
+        "city": "شهر",
+        "enter-city": "پنھنجي شھر ۾ داخل ٿيو",
+        "sub-district-or-taluka": "ذيلي ضلعو / تعلقو",
+        "enter-sub-district-or-taluka": "پنھنجو ذيلي ضلعو / تعلقو داخل ڪريو.",
+        "district": "ضلعو",
+        "enter-district": "پنھنجو ضلعو داخل ڪريو",
+        "state": "رياست",
+        "enter-state": "پنھنجي رياست داخل ڪريو",
+        "zip-code": "زِپ ڪوڊ",
+        "enter-zip-code": "پنهنجو زپ ڪوڊ داخل ڪريو",
+        "country": "ملڪ",
+        "enter-country": "پنھنجي ملڪ ۾ داخل ٿيو",
+        "address-type": "ايڊريس جو قسم",
+        "enter-address-type": "پنھنجي ايڊريس جو قسم داخل ڪريو",
+        "permanent": "مستقل",
+        "current": "موجوده",
+        "sign-up-button": "سائن اپ ڪريو",
+        "already-have-an-account": "اڳ ۾ ئي اڪائونٽ آهي؟",
+
+        "Please-fill-in-all-fields": "مھرباني ڪري سڀ خانا ڀريو. ❌",
+        "Passwords-do-not-match": "پاسورڊ نه ٿا ملن.❌",
+        "Signup-successful": "✅ سائن اپ ڪامياب! مھرباني ڪري لاگ ان ٿيو.",
+        "Email-already-in-use": "اي ميل اڳ ۾ ئي استعمال ۾ آهي ⚠️"
+    }
 }
