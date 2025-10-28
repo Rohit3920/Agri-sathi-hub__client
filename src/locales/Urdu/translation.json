@@ -1,15 +1,106 @@
+
 {
     "agri sathi hub": "ایگری ساتھی ہب",
-    "login": "لاگ ان",
-    "logout": "لاگ آؤٹ",
-    "register": "رجسٹر کریں",
-    "Navbar": {
-      "home": "ہوم",
-      "machine Rentals": "مشین کا کرایہ",
-      "labor Hire": "مزدور کی خدمات",
-      "eGov Services": "ای-گورنمنٹ سروسز",
-      "support": "سپورٹ",
-      "about": "ہمارے بارے میں",
-      "contact": "رابطہ"
+    "login" : "لاگ ان",
+    "logout" : "لاگ آؤٹ",
+    "register" : "رجسٹر کریں",
+
+
+    "Navbar" : {
+        "home": "ہوم",
+        "machine Rentals": "مشین کا کرایہ",
+        "labor Hire": "مزدور کی خدمات",
+        "eGov Services": "ای-گورنمنٹ سروسز",
+        "support": "سپورٹ",
+        "about": "ہمارے بارے میں",
+        "contact":"رابطہ"
+    },
+
+    "Sidebar": {
+        "dashboard": "ڈیش بورڈ",
+        "profile": "پروفائل",
+        "settings": "ترتیبات",
+        "help": "مدد",
+        "logout": "لاگ آؤٹ",
+        "Are-you-sure": "کیا آپ کو یقین ہے؟",
+        "Do-you-want-to-log-out": "کیا آپ لاگ آؤٹ کرنا چاہتے ہیں؟",
+        "Yes-log-me-out": "جی ہاں، مجھے لاگ آؤٹ کریں!",
+        "Logged-out-successfully": "کامیابی سے لاگ آؤٹ ہو گیا!",
+        "Home": "ہوم",
+        "Profile": "پروفائل"
+    },
+
+    "loginComponent" : {
+        "user-login" : "صارف لاگ ان",
+        "otp-login" : "OTP لاگ ان",
+        "password-login" : "پاس ورڈ لاگ ان",
+        "sign-up" : "سائن اپ کریں۔",
+        "dont-have-an-account": "اکاؤنٹ نہیں ہے؟",
+
+        "otp": {
+            "mobile-number": "موبائل نمبر",
+            "enter-mobile-number": "اپنا موبائل نمبر درج کریں۔",
+            "send-otp": "OTP بھیجیں۔",
+            "enter-otp": "OTP درج کریں۔",
+            "otp-placeholder": "OTP درج کریں۔",
+            "verify-otp": "OTP کی تصدیق کریں۔",
+            "didnt-receive-OTP?": "OTP موصول نہیں ہوا؟",
+            "resend": "دوبارہ بھیجیں۔",
+
+            "please-enter-a-valid-10-digit-mobile-number": "براہ کرم ایک درست 10 ہندسوں والا موبائل نمبر درج کریں۔ 📱",
+            "OTP-verified-successfully": "OTP کی کامیابی سے تصدیق ہو گئی۔ 🎉",
+            "Invalid-OTP-Try-again": "غلط OTP ❌ دوبارہ کوشش کریں۔",
+            "OTP-sent-successfully": "OTP کامیابی سے بھیج دیا گیا۔ ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "براہ کرم تمام فیلڈز کو پُر کریں۔ ❌",
+            "Login-successful": "✅ لاگ ان کامیاب!",
+            "Invalid-credentials": "غلط اسناد ⚠️",
+            "email-or-phone": "ای میل یا فون نمبر",
+            "enter-email-or-phone": "اپنا ای میل یا فون نمبر درج کریں۔",
+            "password" : "پاس ورڈ",
+            "enter-password": "اپنا پاس ورڈ درج کریں۔",
+            "login-button":"لاگ ان"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "ایک اکاؤنٹ بنائیں",
+        "username": "صارف نام",
+        "enter-username": "اپنا صارف نام درج کریں۔",
+        "email": "ای میل",
+        "enter-email": "اپنا ای میل درج کریں۔",
+        "mobile-number": "موبائل نمبر",
+        "enter-mobile-number": "اپنا موبائل نمبر درج کریں۔",
+        "password": "پاس ورڈ",
+        "enter-password": "اپنا پاس ورڈ درج کریں۔",
+        "confirm-password": "پاس ورڈ کی تصدیق کریں۔",
+        "enter-confirm-password": "اپنا پاس ورڈ دوبارہ درج کریں۔",
+        "street": "گلی",
+        "enter-street": "اپنی گلی میں داخل ہوں۔",
+        "city": "شہر",
+        "enter-city": "اپنے شہر میں داخل ہوں۔",
+        "sub-district-or-taluka": "ذیلی ضلع/تعلقہ",
+        "enter-sub-district-or-taluka": "اپنا ذیلی ضلع/تعلقہ درج کریں۔",
+        "district": "ضلع",
+        "enter-district": "اپنا ضلع درج کریں۔",
+        "state": "ریاست",
+        "enter-state": "اپنی ریاست درج کریں۔",
+        "zip-code": "زپ کوڈ",
+        "enter-zip-code": "اپنا زپ کوڈ درج کریں۔",
+        "country": "ملک",
+        "enter-country": "اپنا ملک درج کریں۔",
+        "address-type": "ایڈریس کی قسم",
+        "enter-address-type": "اپنے ایڈریس کی قسم درج کریں۔",
+        "permanent": "مستقل",
+        "current": "کرنٹ",
+        "sign-up-button": "سائن اپ کریں۔",
+        "already-have-an-account": "پہلے سے ہی اکاؤنٹ ہے؟",
+
+        "Please-fill-in-all-fields": "براہ کرم تمام فیلڈز کو پُر کریں۔ ❌",
+        "Passwords-do-not-match": "پاس ورڈز مماثل نہیں ہیں۔ ❌",
+        "Signup-successful": "✅ سائن اپ کامیاب! براہ کرم لاگ ان کریں۔",
+        "Email-already-in-use": "ای میل پہلے سے استعمال میں ہے۔ ⚠️"
     }
-  }
+}

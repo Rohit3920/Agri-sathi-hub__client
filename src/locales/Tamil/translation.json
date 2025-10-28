@@ -1,15 +1,105 @@
 {
     "agri sathi hub": "அக்ரி சாத்தி ஹப்",
-    "login": "உள்நுழை",
-    "logout": "வெளியேறு",
-    "register": "பதிவுசெய்",
-    "Navbar": {
-      "home": "முகப்பு",
-      "machine Rentals": "இயந்திர வாடகை",
-      "labor Hire": "தொழிலாளர் வேலைக்கு",
-      "eGov Services": "இ-அரசு சேவைகள்",
-      "support": "ஆதரவு",
-      "about": "எங்களைப் பற்றி",
-      "contact": "தொடர்பு"
+    "login" : "உள்நுழை",
+    "logout" : "வெளியேறு",
+    "register" : "பதிவுசெய்",
+
+
+    "Navbar" : {
+        "home": "முகப்பு",
+        "machine Rentals": "இயந்திர வாடகை",
+        "labor Hire": "தொழிலாளர் வேலைக்கு",
+        "eGov Services": "இ-அரசு சேவைகள்",
+        "support": "ஆதரவு",
+        "about": "எங்களைப் பற்றி",
+        "contact": "தொடர்பு"
+    },
+
+    "Sidebar": {
+        "dashboard": "டாஷ்போர்டு",
+        "profile": "சுயவிவரம்",
+        "settings": "அமைப்புகள்",
+        "help": "உதவி",
+        "logout": "வெளியேறு",
+        "Are-you-sure": "உறுதியாக இருக்கிறீர்களா?",
+        "Do-you-want-to-log-out": "வெளியேற விரும்புகிறீர்களா?",
+        "Yes-log-me-out": "ஆம், என்னை வெளியேற்று!",
+        "Logged-out-successfully": "வெற்றிகரமாக வெளியேறு!",
+        "Home": "முகப்பு",
+        "Profile": "சுயவிவரம்"
+    },
+
+    "loginComponent" : {
+        "user-login" : "பயனர் உள்நுழைவு",
+        "otp-login" : "OTP உள்நுழைவு",
+        "password-login" : "கடவுச்சொல் உள்நுழைவு",
+        "sign-up" : "பதிவு செய்யவும்",
+        "dont-have-an-account": "கணக்கு இல்லையா?",
+
+        "otp": {
+            "mobile-number": "மொபைல் எண்",
+            "enter-mobile-number": "உங்கள் மொபைல் எண்ணை உள்ளிடவும்",
+            "send-otp": "OTP அனுப்பு",
+            "enter-otp": "OTP ஐ உள்ளிடவும்",
+            "otp-placeholder": "OTP ஐ உள்ளிடவும்",
+            "verify-otp": "OTP-ஐச் சரிபார்க்கவும்",
+            "didnt-receive-OTP?": "OTP வரவில்லையா?",
+            "resend": "மீண்டும் அனுப்பு",
+
+            "please-enter-a-valid-10-digit-mobile-number": "தயவுசெய்து செல்லுபடியாகும் 10 இலக்க மொபைல் எண்ணை உள்ளிடவும். 📱",
+            "OTP-verified-successfully": "OTP வெற்றிகரமாக சரிபார்க்கப்பட்டது. 🎉",
+            "Invalid-OTP-Try-again": "தவறான OTP❌ மீண்டும் முயற்சிக்கவும்",
+            "OTP-sent-successfully": "OTP வெற்றிகரமாக அனுப்பப்பட்டது. ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "தயவுசெய்து அனைத்து புலங்களையும் நிரப்பவும். ❌",
+            "Login-successful": "✅ உள்நுழைவு வெற்றிகரமாக முடிந்தது!",
+            "Invalid-credentials": "தவறான சான்றுகள் ⚠️",
+            "email-or-phone": "மின்னஞ்சல் அல்லது தொலைபேசி எண்",
+            "enter-email-or-phone": "உங்கள் மின்னஞ்சல் முகவரி அல்லது தொலைபேசி எண்ணை உள்ளிடவும்",
+            "password" : "கடவுச்சொல்",
+            "enter-password": "உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+            "login-button": "உள்நுழைய"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "ஒரு கணக்கை உருவாக்கவும்",
+        "username": "பயனர்பெயர்",
+        "enter-username": "உங்கள் பயனர்பெயரை உள்ளிடவும்",
+        "email": "மின்னஞ்சல்",
+        "enter-email": "உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+        "mobile-number": "மொபைல் எண்",
+        "enter-mobile-number": "உங்கள் மொபைல் எண்ணை உள்ளிடவும்",
+        "password": "கடவுச்சொல்",
+        "enter-password": "உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+        "confirm-password": "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+        "enter-confirm-password": "உங்கள் கடவுச்சொல்லை மீண்டும் உள்ளிடவும்.",
+        "street": "தெரு",
+        "enter-street": "உங்கள் தெருவை உள்ளிடவும்",
+        "city": "நகரம்",
+        "enter-city": "உங்கள் நகரத்தை உள்ளிடவும்",
+        "sub-district-or-taluka": "துணை மாவட்டம் / தாலுகா",
+        "enter-sub-district-or-taluka": "உங்கள் துணை மாவட்டம் / தாலுகாவை உள்ளிடவும்.",
+        "district": "மாவட்டம்",
+        "enter-district": "உங்கள் மாவட்டத்தை உள்ளிடவும்",
+        "state": "நிலை",
+        "enter-state": "உங்கள் மாநிலத்தை உள்ளிடவும்",
+        "zip-code": "அஞ்சல் குறியீடு",
+        "enter-zip-code": "உங்கள் அஞ்சல் குறியீட்டை உள்ளிடவும்",
+        "country": "நாடு",
+        "enter-country": "உங்கள் நாட்டை உள்ளிடவும்",
+        "address-type": "முகவரி வகை",
+        "enter-address-type": "உங்கள் முகவரி வகையை உள்ளிடவும்",
+        "permanent": "நிரந்தரமானது",
+        "current": "தற்போதைய",
+        "sign-up-button": "பதிவு செய்",
+        "already-have-an-account": "ஏற்கனவே ஒரு கணக்கு உள்ளதா?",
+
+        "Please-fill-in-all-fields": "தயவுசெய்து அனைத்து புலங்களையும் நிரப்பவும். ❌",
+        "Passwords-do-not-match": "கடவுச்சொற்கள் பொருந்தவில்லை. ❌",
+        "Signup-successful": "✅ பதிவுசெய்தல் வெற்றிகரமாக முடிந்தது! உள்நுழையவும்.",
+        "Email-already-in-use": "மின்னஞ்சல் ஏற்கனவே பயன்பாட்டில் உள்ளது. ⚠️"
     }
-  }
+} 

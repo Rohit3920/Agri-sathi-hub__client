@@ -12,5 +12,94 @@
         "support": "सहायता",
         "about": "के बारे में",
         "contact": "संपर्क"
+    },
+    "Sidebar": {
+        "dashboard": "डैशबोर्ड",
+        "profile": "प्रोफ़ाइल",
+        "settings": "सेटिंग्स",
+        "help": "मदद",
+        "logout": "लॉगआउट",
+        "Are-you-sure": "क्या आप निश्चित हैं?",
+        "Do-you-want-to-log-out": "क्या आप लॉग आउट करना चाहते हैं?",
+        "Yes-log-me-out": "हाँ, मुझे लॉग आउट करें!",
+        "Logged-out-successfully": "सफलतापूर्वक लॉग आउट हो गया!",
+        "Home": "मुख्य",
+        "Profile": "प्रोफ़ाइल",
+        "cancel": "रद्द करा ऐ"
+    },
+
+    "loginComponent" : {
+        "user-login" : "उपयोगकर्ता-लॉगिन",
+        "otp-login" : "OTP लॉगिन ",
+        "password-login" : "पासवर्ड लॉगिन",
+        "sign-up" : "साइन अप करें",
+        "dont-have-an-account": "आपके पास कोई खाता नहीं है?",
+
+        "otp": {
+            "mobile-number": "मोबाइल नंबर",
+            "enter-mobile-number": "आपका मोबाइल नंबर दर्ज करें",
+            "send-otp": "OTP भेजें",
+            "enter-otp": "OTP प्रविष्ट करा",
+            "otp-placeholder": "OTP प्रविष्ट करा",
+            "verify-otp": "OTP सत्यापित करें",
+            "didnt-receive-OTP?": "क्या आपको OTP प्राप्त नहीं हुआ?",
+            "resend": "पुनः भेजें",
+
+            "please-enter-a-valid-10-digit-mobile-number": "कृपया एक मान्य 10-अंकीय मोबाइल नंबर दर्ज करें 📱",
+            "OTP-verified-successfully": "OTP सफलतापूर्वक सत्यापित किया गया 🎉",
+            "Invalid-OTP-Try-again": "अमान्य OTP  ❌  पुनः प्रयास करें",
+            "OTP-sent-successfully": "OTP सफलतापूर्वक भेजा गया ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "कृपया सभी फ़ील्ड भरें ❌",
+            "Login-successful": "✅ लॉगिन सफल!",
+            "Invalid-credentials": "अमान्य क्रेडेंशियल ⚠️",
+            "email-or-phone": "ईमेल या फ़ोन नंबर",
+            "enter-email-or-phone": "अपना ईमेल या फ़ोन नंबर दर्ज करें",
+            "password" : "पासवर्ड",
+            "enter-password": "अपना पासवर्ड दर्ज करें",
+            "login-button": "लॉग इन करें"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "खाता बनाएँ",
+        "username": "उपयोगकर्ता नाम",
+        "enter-username": "अपना उपयोगकर्ता नाम दर्ज करें",
+        "email": "ईमेल",
+        "enter-email": "अपना ईमेल दर्ज करें",
+        "mobile-number": "मोबाइल नंबर",
+        "enter-mobile-number": "अपना मोबाइल नंबर दर्ज करें",
+        "password": "पासवर्ड",
+        "enter-password": "अपना पासवर्ड दर्ज करें",
+        "confirm-password": "पासवर्ड की पुष्टि करें",
+        "enter-confirm-password": "अपना पासवर्ड पुनः दर्ज करें",
+        "street": "गली",
+        "enter-street": "अपनी गली दर्ज करें",
+        "city": "शहर",
+        "enter-city": "अपना शहर दर्ज करें",
+        "sub-district-or-taluka": "उप-ज़िला / तालुका",
+        "enter-sub-district-or-taluka": "अपना उप-जिला दर्ज करें / तालुका",
+        "district": "जिला",
+        "enter-district": "अपना जिला दर्ज करें",
+        "state": "राज्य",
+        "enter-state": "अपना राज्य दर्ज करें",
+        "zip-code": "ज़िप कोड",
+        "enter-zip-code": "अपना जिप कोड दर्ज करें",
+        "country": "देश",
+        "enter-country": "अपना देश दर्ज करें",
+        "address-type": "पता-प्रकार",
+        "enter-address-type": "अपना पता प्रकार दर्ज करें",
+        "permanent": "स्थायी",
+        "current": "वर्तमान",
+        "sign-up-button": "साइन अप करें",
+        "already-have-an-account": "क्या आपके पास पहले से खाता है?",
+
+        "Please-fill-in-all-fields": "कृपया सभी फ़ील्ड भरे ❌",
+        "Passwords-do-not-match": "पासवर्ड मेल नहीं खाते ❌",
+        "Signup-successful": "✅ साइनअप सफल। कृपया लॉग इन करें।",
+        "Email-already-in-use": "ईमेल पहले से ही उपयोग में है ⚠️"
     }
 }
+
