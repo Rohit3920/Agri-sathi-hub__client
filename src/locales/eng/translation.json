@@ -62,5 +62,44 @@
             "enter-password": "Enter your password",
             "login-button": "Login"
         }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "Create an Account",
+        "username": "Username",
+        "enter-username": "Enter your username",
+        "email": "Email",
+        "enter-email": "Enter your email",
+        "mobile-number": "Mobile Number",
+        "enter-mobile-number": "Enter your mobile number",
+        "password": "Password",
+        "enter-password": "Enter your password",
+        "confirm-password": "Confirm Password",
+        "enter-confirm-password": "Re-enter your password",
+        "street": "Street",
+        "enter-street": "Enter your street",
+        "city": "City",
+        "enter-city": "Enter your city",
+        "sub-district-or-taluka": "Sub-District / Taluka",
+        "enter-sub-district-or-taluka": "Enter your sub-district / taluka",
+        "district": "District",
+        "enter-district": "Enter your district",
+        "state": "State",
+        "enter-state": "Enter your state",
+        "zip-code": "Zip Code",
+        "enter-zip-code": "Enter your zip code",
+        "country": "Country",
+        "enter-country": "Enter your country",
+        "address-type": "Address Type",
+        "enter-address-type": "Enter your address type",
+        "permanent": "Permanent",
+        "current": "Current",
+        "sign-up-button": "Sign Up",
+        "already-have-an-account": "Already have an account?",
+
+        "Please-fill-in-all-fields": "Please fill in all fields ❌",
+        "Passwords-do-not-match": "Passwords do not match ❌",
+        "Signup-successful": "✅ Signup successful! Please log in.",
+        "Email-already-in-use": "Email already in use ⚠️"
     }
 }

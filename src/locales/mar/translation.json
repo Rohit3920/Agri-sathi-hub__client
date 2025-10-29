@@ -6,8 +6,8 @@
 
     "Navbar": {
         "home": "मुखपृष्ठ",
-        "machine Rentals": "यंत्र भाड्याने",
-        "labor Hire": "मजूर भाड्याने",
+        "machine Rentals": "यंत्र कामाला घेणे",
+        "labor Hire": "मजूर कामाला घेणे",
         "eGov Services": "ई-शासन सेवा",
         "support": "मदत",
         "about": "माहिती",
@@ -63,5 +63,44 @@
             "enter-password": "आपला पासवर्ड प्रविष्ट करा",
             "login-button": "लॉगिन"
         }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "खाते तयार करा",
+        "username": "वापरकर्ता नाव",
+        "enter-username": "आपले वापरकर्ता नाव प्रविष्ट करा",
+        "email": "ईमेल",
+        "enter-email": "आपला ईमेल प्रविष्ट करा",
+        "mobile-number": "मोबाइल नंबर",
+        "enter-mobile-number": "आपला मोबाइल नंबर प्रविष्ट करा",
+        "password": "पासवर्ड",
+        "enter-password": "आपला पासवर्ड प्रविष्ट करा",
+        "confirm-password": "पासवर्डची पुष्टी करा",
+        "enter-confirm-password": "आपला पासवर्ड पुन्हा प्रविष्ट करा",
+        "street": "रस्ता",
+        "enter-street": "आपला रस्ता प्रविष्ट करा",
+        "city": "शहर",
+        "enter-city": "आपले शहर प्रविष्ट करा",
+        "sub-district-or-taluka": "उप-जिल्हा / तालुका",
+        "enter-sub-district-or-taluka": "आपला उप-जिल्हा / तालुका प्रविष्ट करा",
+        "district": "जिल्हा",
+        "enter-district": "आपला जिल्हा प्रविष्ट करा",
+        "state": "राज्य",
+        "enter-state": "आपले राज्य प्रविष्ट करा",
+        "zip-code": "पिन कोड",
+        "enter-zip-code": "आपला पिन कोड प्रविष्ट करा",
+        "country": "देश",
+        "enter-country": "आपला देश प्रविष्ट करा",
+        "address-type": "पत्ता प्रकार",
+        "enter-address-type": "आपला पत्ता प्रकार प्रविष्ट करा",
+        "permanent": "स्थायी",
+        "current": "सध्याचा",
+        "sign-up-button": "साइन अप",
+        "already-have-an-account": "तुमचे खाते आहे का?",
+
+        "Please-fill-in-all-fields": "कृपया सर्व फील्ड भरा ❌",
+        "Passwords-do-not-match": "पासवर्ड जुळत नाहीत ❌",
+        "Signup-successful": "✅ साइन अप यशस्वी! कृपया लॉगिन करा.",
+        "Email-already-in-use": "ईमेल आधीच वापरात आहे ⚠️"
     }
 }

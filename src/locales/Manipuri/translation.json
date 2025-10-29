@@ -1,15 +1,104 @@
 {
-  "agri sathi hub": "এগ্রী সাথী হব",
-  "login": "লোগইন",
-  "logout": "লোগআউট",
-  "register": "রেজিস্টার",
+  "agri sathi hub": "ꯑꯦꯒ꯭ꯔꯤ ꯁꯥꯊꯤ ꯍꯕ",
+  "login": "ꯂꯣꯒꯏꯟ",
+  "logout": "ꯂꯣꯒꯑꯥꯎꯠ",
+  "register": "ꯔꯦꯖꯤꯁꯇꯔ",
+
   "Navbar": {
-    "home": "মালেম",
-    "machine Rentals": "কল য়ুম্বাদা",
-    "labor Hire": "শ্রমিক য়ুম্বাদা",
-    "eGov Services": "ই-গভ সার্ভিস",
-    "support": "সপোর্ট",
-    "about": "অইবোংদো",
-    "contact": "কন্টাক্ট"
+    "home": "ꯍꯣꯝ",
+    "machine Rentals": "ꯃꯦꯁꯤꯟ ꯚꯥꯔꯥ",
+    "labor Hire": "ꯂꯦꯕꯔ ꯍꯥꯏꯔ",
+    "eGov Services": "ꯏ-ꯒꯣꯚꯔꯅꯃꯦꯟꯇ ꯁꯔꯕꯤꯁꯁꯤꯡ",
+    "support": "ꯁꯣꯄꯣꯔꯠ",
+    "about": "ꯑꯕꯧꯠ",
+    "contact": "ꯈꯨꯝꯗꯤ"
+  },
+
+  "Sidebar": {
+    "dashboard": "ꯗꯦꯁꯕꯣꯔꯗ",
+    "profile": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ",
+    "settings": "ꯁꯦꯇꯤꯡꯁ",
+    "help": "ꯍꯦꯂꯞ",
+    "logout": "ꯂꯣꯒꯑꯥꯎꯠ",
+    "Are-you-sure": "ꯑꯗꯦꯡ ꯌꯦꯡꯗꯤ?",
+    "Do-you-want-to-log-out": "ꯗꯧ ꯂꯣꯒꯑꯥꯎꯠ ꯇꯧꯕꯥ꯫?",
+    "Yes-log-me-out": "ꯌꯦꯡꯗꯤ, ꯂꯣꯒꯑꯥꯎꯠ ꯇꯧꯕꯥ꯫",
+    "Logged-out-successfully": "ꯂꯣꯒꯑꯥꯎꯠ ꯁꯦꯝꯗꯦꯝꯗ!",
+    "Home": "ꯍꯣꯝ",
+    "Profile": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ"
+  },
+
+  "loginComponent": {
+    "user-login": "ꯌꯨꯖꯔ ꯂꯣꯒꯏꯟ",
+    "otp-login": "OTP ꯂꯣꯒꯏꯟ",
+    "password-login": "ꯑꯄꯥꯁꯋꯥꯔꯗ ꯂꯣꯒꯏꯟ",
+    "sign-up": "ꯁꯥꯏꯟ ꯑꯄꯗꯥ",
+    "dont-have-an-account": "ꯑꯦꯡꯗꯦ ꯑꯦꯀꯥꯎꯟꯇ ꯍꯦꯡꯗꯤ?",
+
+    "otp": {
+      "mobile-number": "ꯃꯣꯕꯥꯏꯜ ꯅꯣꯡꯗꯤ",
+      "enter-mobile-number": "ꯃꯣꯕꯥꯏꯜ ꯅꯣꯡꯗꯤ ꯇꯧꯕꯥ꯫",
+      "send-otp": "OTP ꯁꯦꯟꯗ ꯇꯧꯕꯥ꯫",
+      "enter-otp": "OTP ꯇꯧꯕꯥ꯫",
+      "otp-placeholder": "OTP ꯇꯧꯕꯥ꯫",
+      "verify-otp": "OTP ꯈꯝꯗꯦꯝ ꯇꯧꯕꯥ꯫",
+      "didnt-receive-OTP?": "ꯗꯧ ꯑꯗꯦꯡ OTP ꯍꯦꯡꯗꯤ?",
+      "resend": "ꯁꯦꯟꯗ ꯃꯥꯏ ꯇꯧꯕꯥ꯫",
+
+      "please-enter-a-valid-10-digit-mobile-number": "ꯍꯣꯝꯄꯦꯡ 10 ꯑꯃꯁꯤꯡꯗ ꯃꯣꯕꯥꯏꯜ ꯅꯣꯡꯗꯤ ꯇꯧꯕꯥ꯫ 📱",
+      "OTP-verified-successfully": "✅ OTP ꯈꯝꯗꯦꯝ ꯁꯦꯝꯗꯦꯝꯗ!",
+      "Invalid-OTP-Try-again": "❌ OTP ꯏꯕꯤꯟ ꯑꯗꯨ ꯇꯧꯕꯥ꯫",
+      "OTP-sent-successfully": "✅ OTP ꯁꯦꯟꯗ ꯁꯦꯝꯗꯦꯝꯗ!"
+    },
+
+    "passwordLogin": {
+      "Please-fill-in-all-fields": "❌ ꯑꯅꯤꯡ ꯍꯣꯝꯄꯦꯡ ꯁꯦꯝꯗꯦꯝꯗ!",
+      "Login-successful": "✅ ꯂꯣꯒꯏꯟ ꯁꯦꯝꯗꯦꯝꯗ!",
+      "Invalid-credentials": "⚠️ ꯏꯕꯤꯟ ꯄꯥꯁꯋꯥꯔꯗ",
+      "email-or-phone": "ꯏꯃꯦꯜ ꯑꯗꯨ ꯃꯣꯕꯥꯏꯜ",
+      "enter-email-or-phone": "ꯑꯅꯤꯡ ꯏꯃꯦꯜ ꯑꯗꯨ ꯃꯣꯕꯥꯏꯜ ꯇꯧꯕꯥ꯫",
+      "password": "ꯄꯥꯁꯋꯥꯔꯗ",
+      "enter-password": "ꯑꯅꯤꯡ ꯄꯥꯁꯋꯥꯔꯗ ꯇꯧꯕꯥ꯫",
+      "login-button": "ꯂꯣꯒꯏꯟ"
+    }
+  },
+
+  "SignupComponent": {
+    "create-an-account": "ꯑꯦꯀꯥꯎꯟꯇ ꯁꯦꯝꯃꯨ꯫",
+    "username": "ꯌꯨꯖꯔ ꯃꯃꯤꯡ",
+    "enter-username": "ꯑꯅꯤꯡ ꯌꯨꯖꯔ ꯃꯃꯤꯡ ꯇꯧꯕꯥ꯫",
+    "email": "ꯏꯃꯦꯜ",
+    "enter-email": "ꯑꯅꯤꯡ ꯏꯃꯦꯜ ꯇꯧꯕꯥ꯫",
+    "mobile-number": "ꯃꯣꯕꯥꯏꯜ ꯅꯣꯡꯗꯤ",
+    "enter-mobile-number": "ꯑꯅꯤꯡ ꯃꯣꯕꯥꯏꯜ ꯅꯣꯡꯗꯤ ꯇꯧꯕꯥ꯫",
+    "password": "ꯄꯥꯁꯋꯥꯔꯗ",
+    "enter-password": "ꯑꯅꯤꯡ ꯄꯥꯁꯋꯥꯔꯗ ꯇꯧꯕꯥ꯫",
+    "confirm-password": "ꯄꯥꯁꯋꯥꯔꯗ ꯈꯝꯗꯦꯝ ꯇꯧꯕꯥ꯫",
+    "enter-confirm-password": "ꯄꯥꯁꯋꯥꯔꯗ ꯑꯗꯨ ꯑꯦꯡꯗ ꯇꯧꯕꯥ꯫",
+    "street": "ꯁ꯭ꯇ꯭ꯔꯤꯠ",
+    "enter-street": "ꯑꯅꯤꯡ ꯁ꯭ꯇ꯭ꯔꯤꯠ ꯇꯧꯕꯥ꯫",
+    "city": "ꯁꯤꯇꯤ",
+    "enter-city": "ꯑꯅꯤꯡ ꯁꯤꯇꯤ ꯇꯧꯕꯥ꯫",
+    "sub-district-or-taluka": "ꯁꯕꯗ꯭ꯗꯤꯁ꯭ꯇ / ꯇꯥꯂꯨꯀꯥ",
+    "enter-sub-district-or-taluka": "ꯑꯅꯤꯡ ꯁꯕꯗ꯭ꯗꯤꯁ꯭ꯇ / ꯇꯥꯂꯨꯀꯥ ꯇꯧꯕꯥ꯫",
+    "district": "ꯗ꯭ꯔꯤꯁ꯭ꯇ꯭ꯔꯤꯠ",
+    "enter-district": "ꯑꯅꯤꯡ ꯗ꯭ꯔꯤꯁ꯭ꯇ꯭ꯔꯤꯠ ꯇꯧꯕꯥ꯫",
+    "state": "ꯁ꯭ꯇꯦꯇ",
+    "enter-state": "ꯑꯅꯤꯡ ꯁ꯭ꯇꯦꯇ ꯇꯧꯕꯥ꯫",
+    "zip-code": "ꯖꯤꯞ ꯀꯣꯗ",
+    "enter-zip-code": "ꯑꯅꯤꯡ ꯖꯤꯞ ꯀꯣꯗ ꯇꯧꯕꯥ꯫",
+    "country": "ꯈꯨꯝꯗꯤ",
+    "enter-country": "ꯑꯅꯤꯡ ꯈꯨꯝꯗꯤ ꯇꯧꯕꯥ꯫",
+    "address-type": "ꯑꯦꯗ꯭ꯔꯦꯁ ꯇꯥꯏꯄ",
+    "enter-address-type": "ꯑꯅꯤꯡ ꯑꯦꯗ꯭ꯔꯦꯁ ꯇꯥꯏꯄ ꯇꯧꯕꯥ꯫",
+    "permanent": "ꯃꯇꯝ ꯆꯨꯞꯄꯒꯤ",
+    "current": "ꯇꯥꯂꯦ",
+    "sign-up-button": "ꯁꯥꯏꯟ ꯑꯄꯗꯥ",
+    "already-have-an-account": "ꯑꯦꯡꯗꯦ ꯍꯦꯡꯗꯤ ꯑꯦꯀꯥꯎꯟꯇ ꯍꯦꯡꯗꯤ?",
+
+    "Please-fill-in-all-fields": "❌ ꯍꯣꯝꯄꯦꯡ ꯑꯅꯤꯡ ꯁꯦꯝꯗꯦꯝꯗ!",
+    "Passwords-do-not-match": "❌ ꯄꯥꯁꯋꯥꯔꯗ ꯑꯗꯨ ꯌꯦꯡꯗꯤ!",
+    "Signup-successful": "✅ ꯁꯥꯏꯟ ꯑꯄꯗꯥ ꯁꯦꯝꯗꯦꯝꯗ! ꯂꯣꯒꯏꯟ ꯇꯧꯕꯥ꯫",
+    "Email-already-in-use": "⚠️ ꯏꯃꯦꯜ ꯑꯦꯡꯗꯦ ꯍꯦꯡꯗꯤ"
   }
 }

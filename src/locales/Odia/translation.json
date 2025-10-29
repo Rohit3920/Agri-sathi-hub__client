@@ -1,15 +1,104 @@
 {
-    "agri sathi hub": "ଏଗ୍ରୀ ସାଥୀ ହବ୍",
-    "login": "ଲଗଇନ୍",
-    "logout": "ଲଗଆଉଟ୍",
-    "register": "ପଞ୍ଜୀକରଣ",
+    "agri sathi hub": "କୃଷି ସାଥି ହବ୍",
+    "login": "ଲଗଇନ୍ କରନ୍ତୁ",
+    "logout": "ଲଗଆଉଟ୍ କରନ୍ତୁ",
+    "register": "ରେଜିଷ୍ଟର୍ କରନ୍ତୁ",
+
     "Navbar": {
-      "home": "ହୋମ୍",
-      "machine Rentals": "ଯନ୍ତ୍ର ଭଡା",
-      "labor Hire": "ଶ୍ରମିକ ନିଯୁକ୍ତି",
-      "eGov Services": "ଇ-ସରକାରୀ ସେବାଗୁଡ଼ିକ",
-      "support": "ସମର୍ଥନ",
-      "about": "ଆମ ବିଷୟରେ",
-      "contact": "ଯୋଗାଯୋଗ"
+        "home": "ମୁଖ୍ୟ ପୃଷ୍ଠା",
+        "machine Rentals": "ମେସିନ୍ ଭଡା",
+        "labor Hire": "ଶ୍ରମିକ ଭଡା",
+        "eGov Services": "ଇ-ସରକାରୀ ସେବା",
+        "support": "ସହାୟତା",
+        "about": "ଆମ ବିଷୟରେ",
+        "contact": "ଯୋଗାଯୋଗ"
+    },
+
+    "Sidebar": {
+        "dashboard": "ଡ୍ୟାସବୋର୍ଡ",
+        "profile": "ପ୍ରୋଫାଇଲ୍",
+        "settings": "ସେଟିଂସ୍",
+        "help": "ସହଯୋଗ",
+        "logout": "ଲଗଆଉଟ୍ କରନ୍ତୁ",
+        "Are-you-sure": "ଆପଣ ନିଶ୍ଚିତ କି?",
+        "Do-you-want-to-log-out": "ଆପଣ ଲଗଆଉଟ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି କି?",
+        "Yes-log-me-out": "ହଁ, ମୋତେ ଲଗଆଉଟ୍ କରନ୍ତୁ",
+        "Logged-out-successfully": "ସଫଳତାର ସହିତ ଲଗଆଉଟ୍ ହେଲା!",
+        "Home": "ମୁଖ୍ୟ ପୃଷ୍ଠା",
+        "Profile": "ପ୍ରୋଫାଇଲ୍"
+    },
+
+    "loginComponent": {
+        "user-login": "ବ୍ୟବହାରକାରୀ ଲଗଇନ୍",
+        "otp-login": "OTP ଦ୍ୱାରା ଲଗଇନ୍",
+        "password-login": "ପାସୱାର୍ଡ ଦ୍ୱାରା ଲଗଇନ୍",
+        "sign-up": "ସାଇନ୍ ଅପ୍ କରନ୍ତୁ",
+        "dont-have-an-account": "ଖାତା ନାହିଁ କି?",
+
+        "otp": {
+            "mobile-number": "ମୋବାଇଲ୍ ନମ୍ବର",
+            "enter-mobile-number": "ମୋବାଇଲ୍ ନମ୍ବର ଦିଅନ୍ତୁ",
+            "send-otp": "OTP ପଠାନ୍ତୁ",
+            "enter-otp": "OTP ଲେଖନ୍ତୁ",
+            "otp-placeholder": "ଏଠାରେ OTP ଲେଖନ୍ତୁ",
+            "verify-otp": "OTP ଯାଞ୍ଚ କରନ୍ତୁ",
+            "didnt-receive-OTP?": "OTP ମିଳିଲା ନାହିଁ କି?",
+            "resend": "ପୁଣି ପଠାନ୍ତୁ",
+
+            "please-enter-a-valid-10-digit-mobile-number": "ଦୟାକରି ଏକ ସଠିକ 10 ଅଙ୍କର ମୋବାଇଲ୍ ନମ୍ବର ଦିଅନ୍ତୁ 📱",
+            "OTP-verified-successfully": "OTP ସଫଳତାର ସହିତ ଯାଞ୍ଚ ହେଲା! 🎉",
+            "Invalid-OTP-Try-again": "OTP ଭୁଲ ଅଛି ❌ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ",
+            "OTP-sent-successfully": "OTP ସଫଳତାର ସହିତ ପଠାଯାଇଛି ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "ସମସ୍ତ ଫିଲ୍ଡ ପୁରଣ କରନ୍ତୁ ❌",
+            "Login-successful": "✅ ଲଗଇନ୍ ସଫଳ ହେଲା!",
+            "Invalid-credentials": "ଭୁଲ ତଥ୍ୟ ⚠️",
+            "email-or-phone": "ଇମେଲ୍ କିମ୍ବା ଫୋନ୍",
+            "enter-email-or-phone": "ଇମେଲ୍ କିମ୍ବା ଫୋନ୍ ଦିଅନ୍ତୁ",
+            "password": "ପାସୱାର୍ଡ",
+            "enter-password": "ପାସୱାର୍ଡ ଦିଅନ୍ତୁ",
+            "login-button": "ଲଗଇନ୍ କରନ୍ତୁ"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "ନୂତନ ଖାତା ସୃଷ୍ଟି କରନ୍ତୁ",
+        "username": "ବ୍ୟବହାରକାରୀ ନାମ",
+        "enter-username": "ବ୍ୟବହାରକାରୀ ନାମ ଲେଖନ୍ତୁ",
+        "email": "ଇମେଲ୍",
+        "enter-email": "ଇମେଲ୍ ଦିଅନ୍ତୁ",
+        "mobile-number": "ମୋବାଇଲ୍ ନମ୍ବର",
+        "enter-mobile-number": "ମୋବାଇଲ୍ ନମ୍ବର ଦିଅନ୍ତୁ",
+        "password": "ପାସୱାର୍ଡ",
+        "enter-password": "ପାସୱାର୍ଡ ଦିଅନ୍ତୁ",
+        "confirm-password": "ପାସୱାର୍ଡ ସୁନିଶ୍ଚିତ କରନ୍ତୁ",
+        "enter-confirm-password": "ପାସୱାର୍ଡ ପୁଣି ଲେଖନ୍ତୁ",
+        "street": "ରାସ୍ତା / ଗଲି",
+        "enter-street": "ରାସ୍ତା କିମ୍ବା ଗଲି ଲେଖନ୍ତୁ",
+        "city": "ସହର",
+        "enter-city": "ସହର ଲେଖନ୍ତୁ",
+        "sub-district-or-taluka": "ଉପଜିଲ୍ଲା / ତାହସିଲ୍",
+        "enter-sub-district-or-taluka": "ଉପଜିଲ୍ଲା କିମ୍ବା ତାହସିଲ୍ ଲେଖନ୍ତୁ",
+        "district": "ଜିଲ୍ଲା",
+        "enter-district": "ଜିଲ୍ଲା ଲେଖନ୍ତୁ",
+        "state": "ରାଜ୍ୟ",
+        "enter-state": "ରାଜ୍ୟ ଲେଖନ୍ତୁ",
+        "zip-code": "ପିନ୍ କୋଡ୍",
+        "enter-zip-code": "ପିନ୍ କୋଡ୍ ଦିଅନ୍ତୁ",
+        "country": "ଦେଶ",
+        "enter-country": "ଦେଶ ଦିଅନ୍ତୁ",
+        "address-type": "ଠିକଣା ପ୍ରକାର",
+        "enter-address-type": "ଠିକଣା ପ୍ରକାର ଦିଅନ୍ତୁ",
+        "permanent": "ସ୍ଥାୟୀ",
+        "current": "ବର୍ତ୍ତମାନ",
+        "sign-up-button": "ସାଇନ୍ ଅପ୍ କରନ୍ତୁ",
+        "already-have-an-account": "ଆପଣଙ୍କ ପାଖରେ ଖାତା ଅଛି କି?",
+
+        "Please-fill-in-all-fields": "ଦୟାକରି ସମସ୍ତ ଫିଲ୍ଡ ପୁରଣ କରନ୍ତୁ ❌",
+        "Passwords-do-not-match": "ପାସୱାର୍ଡ ମେଳ ଖାଉନି ❌",
+        "Signup-successful": "✅ ସାଇନ୍ ଅପ୍ ସଫଳ ହେଲା!",
+        "Email-already-in-use": "ଏହି ଇମେଲ୍ ପୂର୍ବରୁ ବ୍ୟବହାର ହେଉଛି ⚠️"
     }
-  }
+}
