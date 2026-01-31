@@ -1,15 +1,104 @@
 {
-    "agri sathi hub": "कृषि साहाय्यक केन्द्रम्",
-    "login": "प्रवेशः",
-    "logout": "निर्गमः",
-    "register": "पञ्जीकरणम्",
+    "agri sathi hub": "कृषि साथी केन्द्रः",
+    "login": "प्रवेशं कुर्वन्तु",
+    "logout": "निर्गच्छन्तु",
+    "register": "पञ्जीकुरुत",
+
     "Navbar": {
-      "home": "गृहम्",
-      "machine Rentals": "यन्त्रभाटकम्",
-      "labor Hire": "श्रमभाटकम्",
-      "eGov Services": "ई-शासनसेवानि",
-      "support": "समर्थनम्",
-      "about": "अस्माकं विषये",
-      "contact": "सम्पर्कः"
+        "home": "गृहपृष्ठम्",
+        "machine Rentals": "यन्त्रभाडा",
+        "labor Hire": "श्रमिकनियोजनम्",
+        "eGov Services": "ई-शासनसेवाः",
+        "support": "सहायता",
+        "about": "विषये",
+        "contact": "सम्पर्कः"
+    },
+
+    "Sidebar": {
+        "dashboard": "नियन्त्रणफलकम्",
+        "profile": "प्रोफाइलः",
+        "settings": "सेटिङ्ग्स्",
+        "help": "सहायता",
+        "logout": "निर्गच्छन्तु",
+        "Are-you-sure": "किं भवतः निश्चयः अस्ति?",
+        "Do-you-want-to-log-out": "किं भवन्तः निर्गन्तुम् इच्छन्ति?",
+        "Yes-log-me-out": "आम्, मां निर्गमयतु",
+        "Logged-out-successfully": "सफलतया निर्गतः!",
+        "Home": "गृहपृष्ठम्",
+        "Profile": "प्रोफाइलः"
+    },
+
+    "loginComponent": {
+        "user-login": "उपयोक्तृप्रवेशः",
+        "otp-login": "OTP द्वारा प्रवेशः",
+        "password-login": "गुप्तशब्देन प्रवेशः",
+        "sign-up": "पञ्जीकुरुत",
+        "dont-have-an-account": "किं भवतः खाता नास्ति?",
+
+        "otp": {
+            "mobile-number": "दूरभाषसङ्ख्या",
+            "enter-mobile-number": "स्वदूरभाषसङ्ख्यां प्रविशतु",
+            "send-otp": "OTP प्रेषयतु",
+            "enter-otp": "OTP प्रविशतु",
+            "otp-placeholder": "अत्र OTP लिखतु",
+            "verify-otp": "OTP परीक्ष्यताम्",
+            "didnt-receive-OTP?": "किं OTP न लब्धः?",
+            "resend": "पुनः प्रेषयतु",
+
+            "please-enter-a-valid-10-digit-mobile-number": "कृपया वैधं दशाङ्कदूरभाषसङ्ख्यां प्रविशतु 📱",
+            "OTP-verified-successfully": "OTP सफलतया परीक्षितः! 🎉",
+            "Invalid-OTP-Try-again": "अवैधः OTP ❌ पुनः प्रयतस्व",
+            "OTP-sent-successfully": "OTP सफलतया प्रेषितः ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "कृपया सर्वाणि क्षेत्राणि पूरयतु ❌",
+            "Login-successful": "✅ प्रवेशः सफलः!",
+            "Invalid-credentials": "अवैधप्रमाणम् ⚠️",
+            "email-or-phone": "ईमेल् अथवा दूरभाषः",
+            "enter-email-or-phone": "ईमेल् अथवा दूरभाषसङ्ख्यां प्रविशतु",
+            "password": "गुप्तशब्दः",
+            "enter-password": "गुप्तशब्दं प्रविशतु",
+            "login-button": "प्रवेशं कुर्वन्तु"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "नवखातं निर्मियताम्",
+        "username": "उपयोक्तृनाम",
+        "enter-username": "उपयोक्तृनाम प्रविशतु",
+        "email": "ईमेल्",
+        "enter-email": "ईमेल् प्रविशतु",
+        "mobile-number": "दूरभाषसङ्ख्या",
+        "enter-mobile-number": "दूरभाषसङ्ख्यां प्रविशतु",
+        "password": "गुप्तशब्दः",
+        "enter-password": "गुप्तशब्दं प्रविशतु",
+        "confirm-password": "गुप्तशब्दस्य पुष्टि कुरुत",
+        "enter-confirm-password": "गुप्तशब्दं पुनः प्रविशतु",
+        "street": "मार्गः",
+        "enter-street": "मार्गं प्रविशतु",
+        "city": "नगरम्",
+        "enter-city": "नगरं प्रविशतु",
+        "sub-district-or-taluka": "उपजनपदः अथवा तालुकः",
+        "enter-sub-district-or-taluka": "उपजनपदं प्रविशतु",
+        "district": "जनपदः",
+        "enter-district": "जनपदं प्रविशतु",
+        "state": "राज्यम्",
+        "enter-state": "राज्यं प्रविशतु",
+        "zip-code": "पिन्कोड्",
+        "enter-zip-code": "पिन्कोडं प्रविशतु",
+        "country": "देशः",
+        "enter-country": "देशं प्रविशतु",
+        "address-type": "सङ्केतप्रकारः",
+        "enter-address-type": "सङ्केतप्रकारं प्रविशतु",
+        "permanent": "स्थायि",
+        "current": "वर्तमान",
+        "sign-up-button": "पञ्जीकुरुत",
+        "already-have-an-account": "किं भवतः खाता पूर्वमेव अस्ति?",
+
+        "Please-fill-in-all-fields": "कृपया सर्वाणि क्षेत्राणि पूरयतु ❌",
+        "Passwords-do-not-match": "गुप्तशब्दौ न समौ स्तः ❌",
+        "Signup-successful": "✅ पञ्जीकरणं सफलम्! कृपया प्रवेशं कुर्वन्तु।",
+        "Email-already-in-use": "ईमेल् पूर्वमेव प्रयुक्तम् ⚠️"
     }
-  }
+}

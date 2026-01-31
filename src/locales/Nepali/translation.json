@@ -1,15 +1,104 @@
 {
-  "agri sathi hub": "एग्री साथी हब",
-  "login": "लगइन",
-  "logout": "लगआउट",
-  "register": "दर्ता",
-  "Navbar": {
-    "home": "गृहपृष्ठ",
-    "machine Rentals": "मेसिन भाडा",
-    "labor Hire": "श्रम भाडा",
-    "eGov Services": "ई-सरकारी सेवाहरू",
-    "support": "सहयोग",
-    "about": "हाम्रो बारेमा",
-    "contact": "सम्पर्क"
-  }
+    "agri sathi hub": "एग्री साथी हब",
+    "login": "लगइन गर्नुहोस्",
+    "logout": "लगआउट गर्नुहोस्",
+    "register": "दर्ता गर्नुहोस्",
+
+    "Navbar": {
+        "home": "गृहपृष्ठ",
+        "machine Rentals": "मेसिन भाडामा",
+        "labor Hire": "श्रमिक भाडा",
+        "eGov Services": "इ-सरकारी सेवाहरू",
+        "support": "समर्थन",
+        "about": "हाम्रोबारे",
+        "contact": "सम्पर्क"
+    },
+
+    "Sidebar": {
+        "dashboard": "ड्यासबोर्ड",
+        "profile": "प्रोफाइल",
+        "settings": "सेटिङहरू",
+        "help": "मद्दत",
+        "logout": "लगआउट गर्नुहोस्",
+        "Are-you-sure": "के तपाईं निश्चित हुनुहुन्छ?",
+        "Do-you-want-to-log-out": "के तपाईं लगआउट गर्न चाहनुहुन्छ?",
+        "Yes-log-me-out": "हो, मलाई लगआउट गर्नुहोस्",
+        "Logged-out-successfully": "लगआउट सफल भयो!",
+        "Home": "गृहपृष्ठ",
+        "Profile": "प्रोफाइल"
+    },
+
+    "loginComponent": {
+        "user-login": "प्रयोगकर्ता लगइन",
+        "otp-login": "OTP द्वारा लगइन",
+        "password-login": "पासवर्ड द्वारा लगइन",
+        "sign-up": "साइन अप गर्नुहोस्",
+        "dont-have-an-account": "के तपाईंको खाता छैन?",
+
+        "otp": {
+            "mobile-number": "मोबाइल नम्बर",
+            "enter-mobile-number": "मोबाइल नम्बर प्रविष्ट गर्नुहोस्",
+            "send-otp": "OTP पठाउनुहोस्",
+            "enter-otp": "OTP प्रविष्ट गर्नुहोस्",
+            "otp-placeholder": "यहाँ OTP लेख्नुहोस्",
+            "verify-otp": "OTP प्रमाणित गर्नुहोस्",
+            "didnt-receive-OTP?": "OTP प्राप्त भएन?",
+            "resend": "फेरि पठाउनुहोस्",
+
+            "please-enter-a-valid-10-digit-mobile-number": "कृपया मान्य १० अङ्कको मोबाइल नम्बर प्रविष्ट गर्नुहोस् 📱",
+            "OTP-verified-successfully": "OTP सफलतापूर्वक प्रमाणित भयो! 🎉",
+            "Invalid-OTP-Try-again": "अमान्य OTP ❌ पुन: प्रयास गर्नुहोस्",
+            "OTP-sent-successfully": "OTP सफलतापूर्वक पठाइयो ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "कृपया सबै फाँटहरू पूरा गर्नुहोस् ❌",
+            "Login-successful": "✅ लगइन सफल भयो!",
+            "Invalid-credentials": "अमान्य प्रमाणहरू ⚠️",
+            "email-or-phone": "इमेल वा फोन",
+            "enter-email-or-phone": "इमेल वा फोन नम्बर प्रविष्ट गर्नुहोस्",
+            "password": "पासवर्ड",
+            "enter-password": "पासवर्ड प्रविष्ट गर्नुहोस्",
+            "login-button": "लगइन गर्नुहोस्"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "खाता सिर्जना गर्नुहोस्",
+        "username": "प्रयोगकर्ता नाम",
+        "enter-username": "प्रयोगकर्ता नाम प्रविष्ट गर्नुहोस्",
+        "email": "इमेल",
+        "enter-email": "इमेल प्रविष्ट गर्नुहोस्",
+        "mobile-number": "मोबाइल नम्बर",
+        "enter-mobile-number": "मोबाइल नम्बर प्रविष्ट गर्नुहोस्",
+        "password": "पासवर्ड",
+        "enter-password": "पासवर्ड प्रविष्ट गर्नुहोस्",
+        "confirm-password": "पासवर्ड पुष्टि गर्नुहोस्",
+        "enter-confirm-password": "पासवर्ड पुन: प्रविष्ट गर्नुहोस्",
+        "street": "गल्ली / सडक",
+        "enter-street": "गल्ली वा सडक लेख्नुहोस्",
+        "city": "शहर",
+        "enter-city": "शहर प्रविष्ट गर्नुहोस्",
+        "sub-district-or-taluka": "नगरपालिका / गाउँपालिका",
+        "enter-sub-district-or-taluka": "नगरपालिका वा गाउँपालिका प्रविष्ट गर्नुहोस्",
+        "district": "जिल्ला",
+        "enter-district": "जिल्ला प्रविष्ट गर्नुहोस्",
+        "state": "प्रदेश",
+        "enter-state": "प्रदेश प्रविष्ट गर्नुहोस्",
+        "zip-code": "पिन कोड",
+        "enter-zip-code": "पिन कोड प्रविष्ट गर्नुहोस्",
+        "country": "देश",
+        "enter-country": "देश प्रविष्ट गर्नुहोस्",
+        "address-type": "ठेगानाको प्रकार",
+        "enter-address-type": "ठेगानाको प्रकार प्रविष्ट गर्नुहोस्",
+        "permanent": "स्थायी",
+        "current": "हालको",
+        "sign-up-button": "दर्ता गर्नुहोस्",
+        "already-have-an-account": "के तपाईंको पहिले नै खाता छ?",
+
+        "Please-fill-in-all-fields": "कृपया सबै फाँटहरू पूरा गर्नुहोस् ❌",
+        "Passwords-do-not-match": "पासवर्ड मेल खाँदैन ❌",
+        "Signup-successful": "✅ दर्ता सफल भयो!",
+        "Email-already-in-use": "यो इमेल पहिले नै प्रयोगमा छ ⚠️"
+    }
 }

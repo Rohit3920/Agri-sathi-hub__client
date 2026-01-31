@@ -1,15 +1,104 @@
 {
-    "agri sathi hub": "ਐਗਰੀ ਸਾਥੀ ਹੱਬ",
-    "login": "ਲਾਗਇਨ",
-    "logout": "ਲਾਗਆਉਟ",
-    "register": "ਰਜਿਸਟਰ",
+    "agri sathi hub": "ਕ੍ਰਿਸ਼ੀ ਸਾਥੀ ਹੱਬ",
+    "login": "ਲੌਗਇਨ ਕਰੋ",
+    "logout": "ਲੌਗਆਉਟ ਕਰੋ",
+    "register": "ਰਜਿਸਟਰ ਕਰੋ",
+
     "Navbar": {
-      "home": "ਮੁੱਖ ਪੰਨਾ",
-      "machine Rentals": "ਮਸ਼ੀਨ ਕਿਰਾਏ",
-      "labor Hire": "ਲੇਬਰ ਕਿਰਾਏ 'ਤੇ",
-      "eGov Services": "ਈ-ਸਰਕਾਰੀ ਸੇਵਾਵਾਂ",
-      "support": "ਸਮਰਥਨ",
-      "about": "ਸਾਡੇ ਬਾਰੇ",
-      "contact": "ਸੰਪਰਕ"
+        "home": "ਮੁੱਖ ਪੰਨਾ",
+        "machine Rentals": "ਮਸ਼ੀਨ ਕਿਰਾਏ 'ਤੇ",
+        "labor Hire": "ਮਜ਼ਦੂਰ ਭਰਤੀ",
+        "eGov Services": "ਈ-ਸਰਕਾਰ ਸੇਵਾਵਾਂ",
+        "support": "ਸਹਾਇਤਾ",
+        "about": "ਸਾਡੇ ਬਾਰੇ",
+        "contact": "ਸੰਪਰਕ"
+    },
+
+    "Sidebar": {
+        "dashboard": "ਡੈਸ਼ਬੋਰਡ",
+        "profile": "ਪ੍ਰੋਫ਼ਾਈਲ",
+        "settings": "ਸੈਟਿੰਗਾਂ",
+        "help": "ਮਦਦ",
+        "logout": "ਲੌਗਆਉਟ ਕਰੋ",
+        "Are-you-sure": "ਕੀ ਤੁਸੀਂ ਪੱਕੇ ਹੋ?",
+        "Do-you-want-to-log-out": "ਕੀ ਤੁਸੀਂ ਲੌਗਆਉਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+        "Yes-log-me-out": "ਹਾਂ, ਮੈਨੂੰ ਲੌਗਆਉਟ ਕਰੋ",
+        "Logged-out-successfully": "ਸਫਲਤਾਪੂਰਵਕ ਲੌਗਆਉਟ ਹੋਇਆ!",
+        "Home": "ਘਰ",
+        "Profile": "ਪ੍ਰੋਫ਼ਾਈਲ"
+    },
+
+    "loginComponent": {
+        "user-login": "ਯੂਜ਼ਰ ਲੌਗਇਨ",
+        "otp-login": "OTP ਨਾਲ ਲੌਗਇਨ",
+        "password-login": "ਪਾਸਵਰਡ ਨਾਲ ਲੌਗਇਨ",
+        "sign-up": "ਸਾਇਨ ਅਪ ਕਰੋ",
+        "dont-have-an-account": "ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਖਾਤਾ ਨਹੀਂ ਹੈ?",
+
+        "otp": {
+            "mobile-number": "ਮੋਬਾਈਲ ਨੰਬਰ",
+            "enter-mobile-number": "ਆਪਣਾ ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ",
+            "send-otp": "OTP ਭੇਜੋ",
+            "enter-otp": "OTP ਦਰਜ ਕਰੋ",
+            "otp-placeholder": "ਇੱਥੇ OTP ਲਿਖੋ",
+            "verify-otp": "OTP ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ",
+            "didnt-receive-OTP?": "ਕੀ ਤੁਹਾਨੂੰ OTP ਨਹੀਂ ਮਿਲਿਆ?",
+            "resend": "ਮੁੜ ਭੇਜੋ",
+
+            "please-enter-a-valid-10-digit-mobile-number": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਵੈਧ 10 ਅੰਕਾਂ ਦਾ ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ 📱",
+            "OTP-verified-successfully": "OTP ਸਫਲਤਾਪੂਰਵਕ ਤਸਦੀਕ ਕੀਤਾ ਗਿਆ! 🎉",
+            "Invalid-OTP-Try-again": "ਅਵੈਧ OTP ❌ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
+            "OTP-sent-successfully": "OTP ਸਫਲਤਾਪੂਰਵਕ ਭੇਜਿਆ ਗਿਆ ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੇ ਖੇਤਰ ਭਰੋ ❌",
+            "Login-successful": "✅ ਲੌਗਇਨ ਸਫਲ ਹੋਇਆ!",
+            "Invalid-credentials": "ਅਵੈਧ ਜਾਣਕਾਰੀ ⚠️",
+            "email-or-phone": "ਈਮੇਲ ਜਾਂ ਫੋਨ ਨੰਬਰ",
+            "enter-email-or-phone": "ਈਮੇਲ ਜਾਂ ਫੋਨ ਨੰਬਰ ਦਰਜ ਕਰੋ",
+            "password": "ਪਾਸਵਰਡ",
+            "enter-password": "ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
+            "login-button": "ਲੌਗਇਨ ਕਰੋ"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "ਇੱਕ ਨਵਾਂ ਖਾਤਾ ਬਣਾਓ",
+        "username": "ਯੂਜ਼ਰ ਨਾਂ",
+        "enter-username": "ਯੂਜ਼ਰ ਨਾਂ ਦਰਜ ਕਰੋ",
+        "email": "ਈਮੇਲ",
+        "enter-email": "ਈਮੇਲ ਦਰਜ ਕਰੋ",
+        "mobile-number": "ਮੋਬਾਈਲ ਨੰਬਰ",
+        "enter-mobile-number": "ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ",
+        "password": "ਪਾਸਵਰਡ",
+        "enter-password": "ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
+        "confirm-password": "ਪਾਸਵਰਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ",
+        "enter-confirm-password": "ਪਾਸਵਰਡ ਮੁੜ ਦਰਜ ਕਰੋ",
+        "street": "ਗਲੀ / ਰਸਤਾ",
+        "enter-street": "ਗਲੀ ਜਾਂ ਰਸਤਾ ਦਰਜ ਕਰੋ",
+        "city": "ਸ਼ਹਿਰ",
+        "enter-city": "ਸ਼ਹਿਰ ਦਰਜ ਕਰੋ",
+        "sub-district-or-taluka": "ਉਪ-ਜ਼ਿਲ੍ਹਾ / ਤਹਿਸੀਲ",
+        "enter-sub-district-or-taluka": "ਉਪ-ਜ਼ਿਲ੍ਹਾ ਜਾਂ ਤਹਿਸੀਲ ਦਰਜ ਕਰੋ",
+        "district": "ਜ਼ਿਲ੍ਹਾ",
+        "enter-district": "ਜ਼ਿਲ੍ਹਾ ਦਰਜ ਕਰੋ",
+        "state": "ਰਾਜ",
+        "enter-state": "ਰਾਜ ਦਰਜ ਕਰੋ",
+        "zip-code": "ਪਿਨ ਕੋਡ",
+        "enter-zip-code": "ਪਿਨ ਕੋਡ ਦਰਜ ਕਰੋ",
+        "country": "ਦੇਸ਼",
+        "enter-country": "ਦੇਸ਼ ਦਰਜ ਕਰੋ",
+        "address-type": "ਪਤਾ ਕਿਸਮ",
+        "enter-address-type": "ਪਤੇ ਦੀ ਕਿਸਮ ਦਰਜ ਕਰੋ",
+        "permanent": "ਸਥਾਈ",
+        "current": "ਮੌਜੂਦਾ",
+        "sign-up-button": "ਸਾਇਨ ਅਪ ਕਰੋ",
+        "already-have-an-account": "ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਹੀ ਖਾਤਾ ਹੈ?",
+
+        "Please-fill-in-all-fields": "ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੇ ਖੇਤਰ ਭਰੋ ❌",
+        "Passwords-do-not-match": "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ❌",
+        "Signup-successful": "✅ ਸਾਇਨ ਅਪ ਸਫਲ ਹੋਇਆ! ਕਿਰਪਾ ਕਰਕੇ ਲੌਗਇਨ ਕਰੋ।",
+        "Email-already-in-use": "ਈਮੇਲ ਪਹਿਲਾਂ ਹੀ ਵਰਤੋਂ ਵਿੱਚ ਹੈ ⚠️"
     }
-  }
+}

@@ -1,15 +1,105 @@
 {
-  "agri sathi hub": "അഗ്രി സാഥി ഹബ്",
-  "login": "ലോഗിൻ",
-  "logout": "ലോഗൗട്ട്",
-  "register": "രജിസ്റ്റർ ചെയ്യുക",
-  "Navbar": {
-    "home": "ഹോം",
-    "machine Rentals": "യന്ത്ര വാടക",
-    "labor Hire": "തൊഴിൽ നിയമനം",
-    "eGov Services": "ഇ-ഗവൺമെന്റ് സേവനങ്ങൾ",
-    "support": "പിന്തുണ",
-    "about": "ഞങ്ങളെക്കുറിച്ച്",
-    "contact": "ബന്ധപ്പെടുക"
-  }
+    "agri sathi hub": "AGRI SATHI HUB",
+    "login" : "Log masuk",
+    "logout" : "Log keluar",
+    "register" : "Daftar",
+
+
+    "Navbar" : {
+        "home": "Halaman Utama",
+        "machine Rentals": "Sewaan Mesin",
+        "labor Hire": "Sewaan Buruh",
+        "eGov Services": "Perkhidmatan eKerajaan",
+        "support": "Sokongan",
+        "about": "Tentang",
+        "contact": "Hubungi Kami"
+    },
+
+    "Sidebar": {
+        "dashboard": "Papan pemuka",
+        "profile": "Profil",
+        "settings": "Tetapan",
+        "help": "Bantuan",
+        "logout": "Log keluar",
+        "Are-you-sure": "Adakah anda pasti?",
+        "Do-you-want-to-log-out": "Adakah anda mahu log keluar?",
+        "Yes-log-me-out": "Ya, log keluar!",
+        "Logged-out-successfully": "Log keluar berjaya!",
+        "Home": "Halaman Utama",
+        "Profile": "Profil"
+    },
+
+    "loginComponent" : {
+        "user-login" : "Log Masuk Pengguna",
+        "otp-login" : "Log Masuk OTP",
+        "password-login" : "Log Masuk Kata Laluan",
+        "sign-up" : "Daftar",
+        "dont-have-an-account": "Tiada akaun?",
+
+        "otp": {
+            "mobile-number": "Nombor Telefon Bimbit",
+            "enter-mobile-number": "Masukkan nombor telefon bimbit anda",
+            "send-otp": "Hantar OTP",
+            "enter-otp": "Masukkan OTP",
+            "otp-placeholder": "Masukkan OTP",
+            "verify-otp": "Sahkan OTP",
+            "didnt-receive-OTP?": "Tidak menerima OTP?",
+            "resend": "Hantar semula",
+
+            "please-enter-a-valid-10-digit-mobile-number": "Sila masukkan nombor telefon bimbit 10 digit yang sah 📱",
+            "OTP-verified-successfully": "OTP disahkan dengan jayanya 🎉",
+            "Invalid-OTP-Try-again": "OTP tidak sah ❌ Sila cuba lagi",
+            "OTP-sent-successfully": "OTP dihantar dengan jayanya ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "Sila isi semua medan ❌",
+            "Login-successful": "✅ Log masuk berjaya!",
+            "Invalid-credentials": "Kelayakan tidak sah ⚠️",
+            "email-or-phone": "Email atau Nombor Telefon",
+            "enter-email-or-phone": "Masukkan email atau nombor telefon anda",
+            "password" : "Kata Laluan",
+            "enter-password": "Masukkan kata laluan anda",
+            "login-button": "Log Masuk"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "Buat Akaun",
+        "username": "Nama Pengguna",
+        "enter-username": "Masukkan nama pengguna anda",
+        "email": "Email",
+        "enter-email": "Masukkan email anda",
+        "mobile-number": "Nombor Telefon Bimbit",
+        "enter-mobile-number": "Masukkan nombor telefon bimbit anda",
+        "password": "Kata Laluan",
+        "enter-password": "Masukkan kata laluan anda",
+        "confirm-password": "Sahkan Kata Laluan",
+        "enter-confirm-password": "Masukkan semula kata laluan anda",
+        "street": "Jalan",
+        "enter-street": "Masukkan nama jalan anda",
+        "city": "Bandar",
+        "enter-city": "Masukkan nama bandar anda",
+        "sub-district-or-taluka": "Daerah Kecil / Taluka",
+        "enter-sub-district-or-taluka": "Masukkan daerah kecil / taluka anda",
+        "district": "Daerah",
+        "enter-district": "Masukkan daerah anda",
+        "state": "Negeri",
+        "enter-state": "Masukkan negeri anda",
+        "zip-code": "Kod Pos",
+        "enter-zip-code": "Masukkan kod pos anda",
+        "country": "Negara",
+        "enter-country": "Masukkan negara anda",
+        "address-type": "Jenis Alamat",
+        "enter-address-type": "Masukkan jenis alamat anda",
+        "permanent": "Permanen",
+        "current": "Semasa",
+        "sign-up-button": "Daftar",
+        "already-have-an-account": "Sudah mempunyai akaun?",
+
+        "Please-fill-in-all-fields": "Sila isi semua medan ❌",
+        "Passwords-do-not-match": "Kata laluan tidak sepadan ❌",
+        "Signup-successful": "✅ Pendaftaran berjaya! Sila log masuk.",
+        "Email-already-in-use": "Email sudah digunakan ⚠️"
+    }
 }
