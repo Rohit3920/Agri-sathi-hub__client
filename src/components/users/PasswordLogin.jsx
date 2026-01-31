@@ -20,8 +20,8 @@ export default function PasswordLogin({ t }) {
 
             const res = await api.post('/api/auth/login', { email: userInput, password });
             console.log('Login response:', res.data);
-            const token = res.data.session.access_token;
-            const userId = res.data.user.id;
+            const token = res.data.token;
+            const userId = res.data._id;
             localStorage.setItem('token', token);
             localStorage.setItem('userId', userId);
             toast.success(t('loginComponent.passwordLogin.Login-successful'));

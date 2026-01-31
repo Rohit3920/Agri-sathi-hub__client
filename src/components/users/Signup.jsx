@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { supabase } from "../../utils/supabaseClient";
 import api from "../../utils/api";
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+    const navigate = useNavigate();
     const { t } = useTranslation();
+    const [userMode, setUserMode] = useState("farmer"); // "farmer" | "servicer" | "worker"
     const [formData, setFormData] = useState({
+        userMode: userMode,
         username: "",
         email: "",
         MobileNum: "",
@@ -66,6 +71,7 @@ export default function Signup() {
         try {
             // Reset form after submission
             setFormData({
+                userMode: 'farmer',
                 username: "",
                 email: "",
                 MobileNum: "",
@@ -88,6 +94,7 @@ export default function Signup() {
             const response = await api.post('/api/auth/register', dataToSend);
             console.log("User signup data:", response.data);
             toast.success("Account created successfully 🎉");
+            navigate('/login');
         } catch (error) {
             // You might need to adjust how you access the error message
             const errorMessage = error.response?.data?.message || error.message;
@@ -103,6 +110,30 @@ export default function Signup() {
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+
+                    {/* usertype */}
+                    <div className="flex justify-center mb-6">
+                        <button
+                            onClick={() => setUserMode("farmer")}
+                            className={`px-4 py-2 rounded-lg ${userMode === "farmer" ? "bg-blue-600     text-white" : "bg-gray-200 text-gray-800"}`}
+                        >
+                            Farmer
+                        </button>
+                        <button
+                            onClick={() => setUserMode("servicer")}
+                            className={`px-4 py-2 rounded-lg ${userMode === "servicer" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"}`}
+                        >
+                            Servicer
+                        </button>
+                        <button
+                            onClick={() => setUserMode("worker")}
+                            className={`px-4 py-2 rounded-lg ${userMode === "worker" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"}`}
+                        >
+                            Worker
+                        </button>
+
+                    </div>
+
                     {/* Username */}
                     <div>
                         <label className="block text-gray-700 dark:text-gray-300 text-sm mb-1">
@@ -198,7 +229,7 @@ export default function Signup() {
                         <input type="text" name="zipCode" placeholder={t("SignupComponent.enter-zip-code")} value={formData.address.zipCode} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
                         />
                         <input type="text" name="country" placeholder={t("SignupComponent.enter-country")} value={formData.address.country} onChange={handleChange} className="px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
-                        disabled/>
+                            disabled />
                     </div>
 
                     {/* Address Type */}
@@ -225,6 +256,16 @@ export default function Signup() {
                         {t("SignupComponent.sign-up-button")}
                     </button>
                 </form>
+
+                <p className="text-center text-sm mt-4 text-gray-500 dark:text-gray-400">
+                                    Already have an account?
+                                    <Link
+                                        to="/login"
+                                        className="text-blue-600 dark:text-blue-400 hover:underline"
+                                    >
+                                        Login
+                                    </Link>
+                                </p>
             </div>
         </div>
     );

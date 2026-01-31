@@ -5,7 +5,7 @@ import AvailableMachines from '../components/machine-rentals/AvailableMachines';
 // import ServiceCard from './ServiceCard';
 
 
-function MainMachineRantalPage() {
+function MainMachineRentalPage() {
 
     return (
         <div className='text-black dark:text-white'>
@@ -20,4 +20,4 @@ function MainMachineRantalPage() {
     )
 }
 
-export default MainMachineRantalPage
+export default MainMachineRentalPage

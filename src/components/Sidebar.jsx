@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
     Home,
     User,
+    MessageCircle,
     LayoutDashboard,
     Settings,
     LogOut,
@@ -38,6 +39,7 @@ function Sidebar({ mobile, t }) {
     const navLinks = [
         { name: t('Sidebar.Home'), path: '/', icon: <Home /> },
         { name: t('Sidebar.Profile'), path: '/profile', icon: <User /> },
+        { name: t('Sidebar.messages'), path: '/user/messages', icon: <MessageCircle /> },
         { name: t('Sidebar.dashboard'), path: '/dashboard', icon: <LayoutDashboard /> },
         { name: t('Sidebar.settings'), path: '/settings', icon: <Settings /> },
     ];

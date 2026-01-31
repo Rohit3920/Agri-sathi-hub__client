@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Bounce } from 'react-toastify';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <>
       <App />
       <ToastContainer
@@ -24,5 +24,5 @@ createRoot(document.getElementById('root')).render(
         transition={Bounce}
       />
     </>
-  </StrictMode>,
+  // </StrictMode>,
 )
