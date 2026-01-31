@@ -1,15 +1,105 @@
 {
-  "agri sathi hub": "एग्री साथी हब",
-  "login": "लॉगिन",
-  "logout": "लॉगआउट",
-  "register": "नोंदणी",
-  "Navbar": {
-    "home": "घरा",
-    "machine Rentals": "मशिन भाड्याक",
-    "labor Hire": "कामगार भाड्याक",
-    "eGov Services": "ई-शासकीय सेवा",
-    "support": "आदार",
-    "about": "आमचे विशीं",
-    "contact": "संपर्क"
-  }
+    "agri sathi hub": "एग्री साथी हब",
+    "login" : "लॉगिन",
+    "logout" : "लॉगआउट",
+    "register" : "नोंदणी",
+
+
+    "Navbar" : {
+        "home": "घरा",
+        "machine Rentals": "मशिन भाड्याक",
+        "labor Hire": "कामगार भाड्याक",
+        "eGov Services": "ई-शासकीय सेवा",
+        "support": "आदार",
+        "about": "आमचे विशीं",
+        "contact": "संपर्क"
+    },
+
+    "Sidebar": {
+        "dashboard": "डॅशबोर्ड",
+        "profile": "प्रोफायल",
+        "settings": "सेटिंग्ज",
+        "help": "आदार",
+        "logout": "लॉगआउट",
+        "Are-you-sure": "तुमकां खात्री आसा?",
+        "Do-you-want-to-log-out": "तुमकां लॉग आउट करपाचें आसा?",
+        "Yes-log-me-out": "होंय, म्हाका लॉग आउट करात!",
+        "Logged-out-successfully": "यशस्वीपणान लॉग आउट जालें!",
+        "Home": "घरा",
+        "Profile": "प्रोफायल"
+    },
+
+    "loginComponent" : {
+        "user-login" : "वापरपी लॉगीन",
+        "otp-login" : "OTP लॉगिन",
+        "password-login" : "पासवर्ड लॉगिन करचें",
+        "sign-up" : "सायन अप करचें",
+        "dont-have-an-account": "खातें ना?",
+
+        "otp": {
+            "mobile-number": "मोबायल क्रमांक",
+            "enter-mobile-number": "तुमचो मोबायल नंबर घालचो",
+            "send-otp": "OTP धाडप",
+            "enter-otp": "OTP दाखयात",
+            "otp-placeholder": "OTP दाखयात",
+            "verify-otp": "OTP तपासात",
+            "didnt-receive-OTP?": "ओटीपी मेळ्ळी ना?",
+            "resend": "परतून धाडचें",
+
+            "please-enter-a-valid-10-digit-mobile-number": "उपकार करून वैध 10 अंकांचो मोबायल क्रमांक घालचो 📱",
+            "OTP-verified-successfully": "ओटीपी यशस्वीपणान सत्यापीत केला 🎉",
+            "Invalid-OTP-Try-again": "अवैध ओटीपी ❌ परतून यत्न करात",
+            "OTP-sent-successfully": "ओटीपी यशस्वीपणान धाडलो ✅"
+        },
+
+        "passwordLogin": {
+            "Please-fill-in-all-fields": "उपकार करून सगळ्यो क्षेत्रां भरात ❌",
+            "Login-successful": "✅ लॉगीन यशस्वी जालें!",
+            "Invalid-credentials": "अवैध प्रमाणपत्रां ⚠️",
+            "email-or-phone": "ईमेल वा फोन क्रमांक",
+            "enter-email-or-phone": "तुमचो ईमेल वा फोन क्रमांक घालात",
+            "password" : "पासवर्ड",
+            "enter-password": "तुमचो पासवर्ड घालात",
+            "login-button": "लॉगिन"
+        }
+    },
+
+    "SignupComponent": {
+        "create-an-account": "खातें तयार करचें",
+        "username": "वापरप्याचें नांव",
+        "enter-username": "तुमचें वापरप्याचें नांव घालात",
+        "email": "ईमेल करचें",
+        "enter-email": "तुमचो ईमेल घालात",
+        "mobile-number": "मोबायल क्रमांक",
+        "enter-mobile-number": "तुमचो मोबायल नंबर घालचो",
+        "password": "पासवर्ड",
+        "enter-password": "तुमचो पासवर्ड घालात",
+        "confirm-password": "पासवर्ड पुष्टी करात",
+        "enter-confirm-password": "तुमचो पासवर्ड परतून दाखयात",
+        "street": "वाट",
+        "enter-street": "तुमच्या रस्त्यार भितर सरात",
+        "city": "शार",
+        "enter-city": "तुमच्या शारांत प्रवेश करात",
+        "sub-district-or-taluka": "उपजिल्हो / तालुका",
+        "enter-sub-district-or-taluka": "तुमचो उपजिल्लो / तालुका दाखयात",
+        "district": "जिल्लो",
+        "enter-district": "तुमच्या जिल्ह्यांत प्रवेश करचो",
+        "state": "राज्य",
+        "enter-state": "तुमच्या राज्यांत प्रवेश करचो",
+        "zip-code": "पिन कोड",
+        "enter-zip-code": "तुमचो पिन कोड घालात",
+        "country": "देश",
+        "enter-country": "तुमच्या देशांत प्रवेश करात",
+        "address-type": "पत्तो प्रकार",
+        "enter-address-type": "तुमचो पत्तो प्रकार दाखयात",
+        "permanent": "कायमचें",
+        "current": "चालंत",
+        "sign-up-button": "सायन अप करचें",
+        "already-have-an-account": "पयलींच खातें आसा?",
+
+        "Please-fill-in-all-fields": "उपकार करून सगळ्यो क्षेत्रां भरात ❌",
+        "Passwords-do-not-match": "पासवर्ड जुळनात ❌",
+        "Signup-successful": "✅ सायनअप यशस्वी जालें! उपकार करून लॉग इन करात.",
+        "Email-already-in-use": "पयलींच वापरांत आशिल्लो ईमेल ⚠️"
+    }
 }
