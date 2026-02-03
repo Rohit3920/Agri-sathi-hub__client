@@ -20,6 +20,10 @@ import AddMachine from './components/machine-rentals/AddMachine'
 import Verify from './components/users/Verify'
 import UploadProfile from './components/users/UploadProfile'
 import ChatUI from './components/message/ChatUl';
+import LaborHire from './pages/LaborHire'
+import WorkerDetail from "./components/labor-hiring/WorkerDetail"
+import GroupDetail from "./components/labor-hiring/GroupDetail"
+import About from './pages/About'
 
 function App() {
   const { t } = useTranslation();
@@ -54,6 +58,11 @@ function App() {
               <Route path="/machine-update/:machineId" element={<UpdateMachine />} />
               <Route path="/machine-view/:machineId" element={<MachineViewer />} />
 
+              {/* labor hiring route  */}
+              <Route path="/labor-hire" element={<LaborHire />} />
+              <Route path="/worker/:workerId" element={<WorkerDetail />} />
+              <Route path="/group/:groupId" element={<GroupDetail />} />
+
               {/* user routes */}
               <Route path="/profile" element={<MyProfile />} />
               <Route path="/farmer-profile/:userId" element={<FarmerProfile />} />
@@ -70,6 +79,8 @@ function App() {
             <Route path="/verify" element={<Verify />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<PageNotFound />} />
+
+            <Route path='/about' element={<About />} />
           </Routes>
         </div>
       </Router>
