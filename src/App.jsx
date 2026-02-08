@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
@@ -24,13 +24,17 @@ import LaborHire from './pages/LaborHire'
 import WorkerDetail from "./components/labor-hiring/WorkerDetail"
 import GroupDetail from "./components/labor-hiring/GroupDetail"
 import About from './pages/About'
+import WorkerDashboard from './pages/dashboard/WorkerDashboard'
+import AgriSathiBot from './components/chatBot/AgriSathiBot'
 
 function App() {
   const { t } = useTranslation();
   const navbarHeight = '70px';
 
+  // ✅ Chat toggle state
+  const [chatOpen, setChatOpen] = useState(false);
+
   return (
-    //all content center using tailwindcss
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors text-center">
       <Router>
         <Navbar t={t} className="fixed top-0 left-0 right-0 z-400" />
@@ -42,14 +46,13 @@ function App() {
         >
           <Sidebar t={t} />
         </div>
+
         {/* Mobile overlay sidebar */}
         <Sidebar t={t} mobile />
 
-        <div className="ml-0 md:ml-21"> {/* only for desktop ml-20 and mobile ml-0 */}
+        <div className="ml-0 md:ml-21">
           <Routes>
             <Route element={<ProtectRoute />}>
-              {/* Protected routes go here */}
-
               <Route path="/" element={<Home t={t} />} />
 
               {/* machine rental routes */}
@@ -59,6 +62,7 @@ function App() {
               <Route path="/machine-view/:machineId" element={<MachineViewer />} />
 
               {/* labor hiring route  */}
+              <Route path='/dashboard' element={<WorkerDashboard />} />
               <Route path="/labor-hire" element={<LaborHire />} />
               <Route path="/worker/:workerId" element={<WorkerDetail />} />
               <Route path="/group/:groupId" element={<GroupDetail />} />
@@ -72,20 +76,43 @@ function App() {
               {/* messaging route */}
               <Route path="/user/messages" element={<ChatUI />} />
               <Route path="/user/messages/:messageUserId" element={<ChatUI />} />
-
             </Route>
 
             <Route path="/login" element={<Login />} />
             <Route path="/verify" element={<Verify />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<PageNotFound />} />
-
             <Route path='/about' element={<About />} />
           </Routes>
         </div>
-      </Router>
 
-    </div >
+
+        {/* ✅ FLOATING CHATBOT SECTION */}
+        <div className="fixed bottom-2 right-6 z-[9999]">
+          {chatOpen && (
+            <div className="mb-2 animate-fadeIn relative">
+              <button
+                onClick={() => setChatOpen(false)}
+                className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg hover:bg-red-600"
+              >
+                ✖
+              </button>
+
+              <AgriSathiBot />
+            </div>
+          )}
+
+          {/* Floating Button */}
+          <button
+            onClick={() => setChatOpen(!chatOpen)}
+            className="bg-green-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:bg-green-800 transition"
+          >
+            🌾
+          </button>
+        </div>
+
+      </Router>
+    </div>
   )
 }
 
