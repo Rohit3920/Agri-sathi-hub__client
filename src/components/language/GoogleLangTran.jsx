@@ -26,7 +26,7 @@ function GoogleLangTran() {
     <div className="flex items-center justify-center">
       <div
         className="
-          rounded-lg border 
+          rounded-lg border
           bg-white dark:bg-gray-900
           border-gray-300 dark:border-gray-700
           px-3 py-2

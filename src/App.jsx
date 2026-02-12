@@ -26,6 +26,7 @@ import GroupDetail from "./components/labor-hiring/GroupDetail"
 import About from './pages/About'
 import WorkerDashboard from './pages/dashboard/WorkerDashboard'
 import AgriSathiBot from './components/chatBot/AgriSathiBot'
+import GovermentSchemes from './pages/GovermentSchemes'
 
 function App() {
   const { t } = useTranslation();
@@ -41,8 +42,8 @@ function App() {
 
         {/* Desktop sidebar */}
         <div
-          className="hidden md:block fixed left-0 z-200"
-          style={{ top: navbarHeight, height: `calc(100vh - ${navbarHeight})` }}
+          className="hidden md:block fixed left-0 z-20 rounded-r-md"
+          style={{ top: `calc(${navbarHeight} + 40px)`, height: `calc(100vh - ${navbarHeight} - 100px)` }}
         >
           <Sidebar t={t} />
         </div>
@@ -72,6 +73,9 @@ function App() {
               <Route path="/farmer-profile/:userId" element={<FarmerProfile />} />
               <Route path="/servicer-profile/:userId" element={<ServicerProfile />} />
               <Route path="/upload-profile" element={<UploadProfile />} />
+
+              {/* Gov scheme routes */}
+              <Route path='/egov-services' element={<GovermentSchemes />} />
 
               {/* messaging route */}
               <Route path="/user/messages" element={<ChatUI />} />
