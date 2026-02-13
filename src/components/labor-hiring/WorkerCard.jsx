@@ -5,7 +5,7 @@ const WorkerCard = ({ data, type }) => {
     // Determine the correct fields based on whether it's a single worker or a group
     const isSingle = type === "single";
     const displayName = isSingle ? data.userId?.username : data.groupName;
-    const profileImg = data.userId?.profilePicture || data.image || "/default-worker.jpg";
+    const profileImg = data.userId?.profilePicture || data.groupImage || "/default-worker.jpg";
     const wage = isSingle ? data.dailyWage : data.groupWagePerDay;
 
     // Address extraction logic
