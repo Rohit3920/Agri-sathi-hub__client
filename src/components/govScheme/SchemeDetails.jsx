@@ -4,6 +4,7 @@ import { Search, Filter, RotateCcw } from "lucide-react";
 import SchemeCard from "./SchemeCard";
 import SchemeModal from "./SchemeModal";
 import api from "../../utils/api";
+import AgriLoader from "../commonComponent/AgriLoader";
 
 const SchemeDetails = () => {
     const [schemesData, setSchemesData] = useState([]);
@@ -181,9 +182,7 @@ const SchemeDetails = () => {
 
                 {/* Loading */}
                 {loading && (
-                    <p className="text-center text-gray-500">
-                        Loading schemes...
-                    </p>
+                    <AgriLoader contentHeader=" schemes" />
                 )}
 
                 {/* Empty */}

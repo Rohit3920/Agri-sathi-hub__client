@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import './components/language/i18n'
 import { useTranslation } from 'react-i18next';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import ProtectRoute from './components/ProtectRoute';
 import PageNotFound from './components/PageNotFound';
 import Login from './components/users/Login';
@@ -30,68 +30,84 @@ import GovermentSchemes from './pages/GovermentSchemes'
 
 function App() {
   const { t } = useTranslation();
+  const location = useLocation();
   const navbarHeight = '70px';
 
-  // ✅ Chat toggle state
   const [chatOpen, setChatOpen] = useState(false);
+
+  // ✅ Auto close chatbot when route changes
+  useEffect(() => {
+    setChatOpen(false);
+  }, [location.pathname]);
+
+  // ✅ Hide chatbot on specific routes
+  const hideChatbot =
+    location.pathname.startsWith("/user/messages") ||
+    location.pathname === "/about" ||
+    location.pathname === "/settings" ||
+    location.pathname === "/dashboard" ||
+    location.pathname === "/profile";
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors text-center">
-      <Router>
-        <Navbar t={t} className="fixed top-0 left-0 right-0 z-400" />
 
-        {/* Desktop sidebar */}
-        <div
-          className="hidden md:block fixed left-0 z-20 rounded-r-md"
-          style={{ top: `calc(${navbarHeight} + 40px)`, height: `calc(100vh - ${navbarHeight} - 100px)` }}
-        >
-          <Sidebar t={t} />
-        </div>
+      <Navbar t={t} className="fixed top-0 left-0 right-0 z-400" />
 
-        {/* Mobile overlay sidebar */}
-        <Sidebar t={t} mobile />
+      {/* Desktop sidebar */}
+      <div
+        className="hidden md:block fixed left-0 z-20 rounded-r-md"
+        style={{
+          top: `calc(${navbarHeight} + 40px)`,
+          height: `calc(100vh - ${navbarHeight} - 100px)`
+        }}
+      >
+        <Sidebar t={t} />
+      </div>
 
-        <div className="ml-0 md:ml-21">
-          <Routes>
-            <Route element={<ProtectRoute />}>
-              <Route path="/" element={<Home t={t} />} />
+      {/* Mobile sidebar */}
+      <Sidebar t={t} mobile />
 
-              {/* machine rental routes */}
-              <Route path="/add-new-machine" element={<AddMachine />} />
-              <Route path="/machine-rentals" element={<MainMachineRentalPage />} />
-              <Route path="/machine-update/:machineId" element={<UpdateMachine />} />
-              <Route path="/machine-view/:machineId" element={<MachineViewer />} />
+      <div className="ml-0 md:ml-21">
+        <Routes>
+          <Route element={<ProtectRoute />}>
+            <Route path="/" element={<Home t={t} />} />
 
-              {/* labor hiring route  */}
-              <Route path='/dashboard' element={<WorkerDashboard />} />
-              <Route path="/labor-hire" element={<LaborHire />} />
-              <Route path="/worker/:workerId" element={<WorkerDetail />} />
-              <Route path="/group/:groupId" element={<GroupDetail />} />
+            {/* machine rental routes */}
+            <Route path="/add-new-machine" element={<AddMachine />} />
+            <Route path="/machine-rentals" element={<MainMachineRentalPage />} />
+            <Route path="/machine-update/:machineId" element={<UpdateMachine />} />
+            <Route path="/machine-view/:machineId" element={<MachineViewer />} />
 
-              {/* user routes */}
-              <Route path="/profile" element={<MyProfile />} />
-              <Route path="/farmer-profile/:userId" element={<FarmerProfile />} />
-              <Route path="/servicer-profile/:userId" element={<ServicerProfile />} />
-              <Route path="/upload-profile" element={<UploadProfile />} />
+            {/* labor hiring route */}
+            <Route path='/dashboard' element={<WorkerDashboard />} />
+            <Route path="/labor-hire" element={<LaborHire />} />
+            <Route path="/worker/:workerId" element={<WorkerDetail />} />
+            <Route path="/group/:groupId" element={<GroupDetail />} />
 
-              {/* Gov scheme routes */}
-              <Route path='/egov-services' element={<GovermentSchemes />} />
+            {/* user routes */}
+            <Route path="/profile" element={<MyProfile />} />
+            <Route path="/farmer-profile/:userId" element={<FarmerProfile />} />
+            <Route path="/servicer-profile/:userId" element={<ServicerProfile />} />
+            <Route path="/upload-profile" element={<UploadProfile />} />
 
-              {/* messaging route */}
-              <Route path="/user/messages" element={<ChatUI />} />
-              <Route path="/user/messages/:messageUserId" element={<ChatUI />} />
-            </Route>
+            {/* Gov scheme routes */}
+            <Route path='/egov-services' element={<GovermentSchemes />} />
 
-            <Route path="/login" element={<Login />} />
-            <Route path="/verify" element={<Verify />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="*" element={<PageNotFound />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </div>
+            {/* messaging route */}
+            <Route path="/user/messages" element={<ChatUI />} />
+            <Route path="/user/messages/:messageUserId" element={<ChatUI />} />
+          </Route>
 
+          <Route path="/login" element={<Login />} />
+          <Route path="/verify" element={<Verify />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path='/about' element={<About />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
 
-        {/* ✅ FLOATING CHATBOT SECTION */}
+      {/* ✅ FLOATING CHATBOT */}
+      {!hideChatbot && (
         <div className="fixed bottom-2 right-6 z-[9999]">
           {chatOpen && (
             <div className="mb-2 animate-fadeIn relative">
@@ -106,16 +122,19 @@ function App() {
             </div>
           )}
 
-          {/* Floating Button */}
           <button
             onClick={() => setChatOpen(!chatOpen)}
             className="bg-green-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:bg-green-800 transition"
           >
-            🌾
+            <img
+              className="p-2"
+              src="mainLogo.png"
+              alt="AI bot"
+            />
           </button>
         </div>
+      )}
 
-      </Router>
     </div>
   )
 }
