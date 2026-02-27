@@ -27,7 +27,7 @@ export default function LocationModal({ isOpen, onClose, onConfirm, onDetect, t 
                 setPosition(e.latlng);
             },
         });
-        return position ? <Marker position={position} /> : null;
+        return null;
     }
 
     function RecenterMap({ pos }) {
@@ -68,6 +68,39 @@ export default function LocationModal({ isOpen, onClose, onConfirm, onDetect, t 
         }
     };
 
+    // ✅ FIXED Detect GPS functionality
+    const handleDetectGPS = () => {
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser");
+            return;
+        }
+
+        setLoading(true);
+
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const { latitude, longitude } = pos.coords;
+                console.log(pos + "coordinates : " + pos.coords)
+
+                setPosition({
+                    lat: latitude,
+                    lng: longitude,
+                });
+
+                setLoading(false);
+            },
+            (err) => {
+                console.error(err);
+                alert("Unable to retrieve your location. Please allow GPS permission.");
+                setLoading(false);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+            }
+        );
+    };
+
     if (!isOpen) return null;
 
     return (
@@ -102,7 +135,7 @@ export default function LocationModal({ isOpen, onClose, onConfirm, onDetect, t 
                 {/* Map */}
                 <div className="h-80 w-full rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700">
                     <MapContainer
-                        center={[20.5937, 78.9629]}
+                        center={[16.7788, 74.2767]}
                         zoom={5}
                         style={{ height: "100%", width: "100%" }}
                     >
@@ -117,10 +150,10 @@ export default function LocationModal({ isOpen, onClose, onConfirm, onDetect, t 
                 <div className="grid grid-cols-2 gap-4 mt-6">
                     <button
                         type="button"
-                        onClick={() => onDetect((coords) => setPosition(coords))}
+                        onClick={handleDetectGPS}
                         className="bg-green-100 text-green-700 font-semibold py-3 rounded-xl hover:bg-green-200 transition"
                     >
-                        🛰️ Detect GPS
+                        🛰️ {loading ? "Detecting..." : "Detect GPS"}
                     </button>
 
                     <button
@@ -136,7 +169,7 @@ export default function LocationModal({ isOpen, onClose, onConfirm, onDetect, t 
                                 : 'bg-gray-400 cursor-not-allowed'
                         }`}
                     >
-                        Confirm & Signup
+                        Confirm location
                     </button>
                 </div>
 

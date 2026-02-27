@@ -22,8 +22,10 @@ export default function PasswordLogin({ t }) {
             console.log('Login response:', res.data);
             const token = res.data.token;
             const userId = res.data._id;
+            const userMode = res.data.userMode;
             localStorage.setItem('token', token);
             localStorage.setItem('userId', userId);
+            localStorage.setItem('userMode', userMode);
             toast.success(t('loginComponent.passwordLogin.Login-successful'));
             setUserInput("");
             setPassword("");

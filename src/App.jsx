@@ -27,6 +27,8 @@ import About from './pages/About'
 import WorkerDashboard from './pages/dashboard/WorkerDashboard'
 import AgriSathiBot from './components/chatBot/AgriSathiBot'
 import GovermentSchemes from './pages/GovermentSchemes'
+import Dashboard from './pages/Dashboard'
+import Settings from './pages/Settings'
 
 function App() {
   const { t } = useTranslation();
@@ -79,7 +81,7 @@ function App() {
             <Route path="/machine-view/:machineId" element={<MachineViewer />} />
 
             {/* labor hiring route */}
-            <Route path='/dashboard' element={<WorkerDashboard />} />
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path="/labor-hire" element={<LaborHire />} />
             <Route path="/worker/:workerId" element={<WorkerDetail />} />
             <Route path="/group/:groupId" element={<GroupDetail />} />
@@ -89,6 +91,7 @@ function App() {
             <Route path="/farmer-profile/:userId" element={<FarmerProfile />} />
             <Route path="/servicer-profile/:userId" element={<ServicerProfile />} />
             <Route path="/upload-profile" element={<UploadProfile />} />
+            <Route path="/settings" element={<Settings />} />
 
             {/* Gov scheme routes */}
             <Route path='/egov-services' element={<GovermentSchemes />} />
