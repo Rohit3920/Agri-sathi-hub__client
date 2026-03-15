@@ -1,15 +1,216 @@
-import React from 'react'
 import GoogleLangTran from './language/GoogleLangTran'
+import React, { useState, useEffect } from "react";
+import AgriLoader from "./commonComponent/AgriLoader";
+import api from "../utils/api";
 
-function Home({ t }) {
+import WeatherNav from "./home/WeatherNav";
+import BestCrops from "./home/BestCrops";
+import CropDetails from "./home/CropDetails";
+import Fertilizers from "./home/Fertilizers";
+import Pesticides from "./home/Pesticides";
+import CropHealth from "./home/CropHealth";
+import RelatedCrops from "./home/RelatedCrops";
+import SeasonalCrops from "./home/SeasonalCrops";
+import ServiceHub from "./home/ServiceHub";
+
+const Home = () => {
+    const [crops, setCrops] = useState([]);
+    const [weather, setWeather] = useState(null);
+    const [selectedCrop, setSelectedCrop] = useState(null);
+    const [fertilizers, setFertilizers] = useState([]);
+    const [pesticides, setPesticides] = useState([]);
+    const [related, setRelated] = useState([]);
+    const [seasonal, setSeasonal] = useState([]);
+    const [health, setHealth] = useState(null);
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [isInitialLoading, setIsInitialLoading] = useState(true);
+
+    useEffect(() => {
+        const initHome = async () => {
+            setIsInitialLoading(true);
+            await Promise.all([
+                loadSeasonal(),
+                weather ? loadPredictions() : Promise.resolve()
+            ]);
+            setIsInitialLoading(false);
+        };
+
+        initHome();
+    }, []);
+
+    // 1. Logic to determine Season based on Current Month
+    const getCurrentSeason = () => {
+        const month = new Date().getMonth() + 1; // 1-12
+        // Kharif: June to Oct
+        if (month >= 6 && month <= 10) return "kharif";
+        // Rabi: Nov to March
+        if (month >= 11 || month <= 3) return "rabi";
+        // Zaid: April to May
+        return "zaid";
+    };
+
+    // Initialize seasonal crops immediately
+    useEffect(() => {
+        loadSeasonal();
+    }, []);
+
+    // 2. Trigger predictions ONLY when weather data is updated by WeatherNav
+    useEffect(() => {
+        if (weather) {
+            loadPredictions();
+        }
+    }, [weather]);
+
+    const loadPredictions = async () => {
+        setLoading(true);
+        setError(null);
+        setSelectedCrop(null); // Clear previous selection
+
+        try {
+            // SUGGESTION: In a real 2026 app, fetch totalRainfall and soilPH 
+            // from the external APIs mentioned in the guide before this call.
+
+            const res = await api.post("/api/crops/predict", {
+                temp: weather?.current?.temp_c || 25,
+                humidity: weather?.current?.humidity || 70,
+                rainfall: 1400, // Replace with dynamic accumulated rain logic
+                phLevel: 6.5,  // Replace with dynamic SoilGrids logic
+                soilType: "loamy",
+                n: 80,
+                p: 40,
+                k: 40
+            });
+
+            setCrops(res.data || []);
+        } catch (err) {
+            console.error("Prediction error:", err);
+            setError("Failed to generate crop recommendations");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const loadSeasonal = async () => {
+        try {
+            const seasonName = getCurrentSeason();
+            // Using query params or dynamic path as per your backend route
+            const res = await api.get(`/api/crops/season/${seasonName}`);
+            setSeasonal(res.data || []);
+        } catch (err) {
+            console.error("Seasonal crops error:", err);
+        }
+    };
+
+    const selectCrop = async (crop) => {
+        try {
+            setLoading(true);
+            setSelectedCrop(crop);
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Use 'smooth' for a nice transition or 'instant' for immediate jump
+            });
+
+            const cropId = crop?.data?._id || crop?.id || crop?._id;
+            if (!cropId) return;
+
+            const [fRes, pRes, rRes, hRes] = await Promise.all([
+                api.get(`/api/crops/${cropId}/fertilizers`),
+                api.get(`/api/crops/${cropId}/pesticides`),
+                api.get(`/api/crops/${cropId}/related`),
+                api.post("/api/crops/health", {
+                    cropId,
+                    n: 70,
+                    p: 35,
+                    k: 40,
+                    rainfall: 1200
+                })
+            ]);
+
+            setFertilizers(fRes.data || []);
+            setPesticides(pRes.data || []);
+            setRelated(rRes.data || []);
+            setHealth(hRes.data || null);
+
+        } catch (err) {
+            console.error("Crop selection error:", err);
+            setError("Failed to load crop details");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    {/* Loading */ }
+    {
+        loading && (
+            <AgriLoader contentHeader=" Agricultural" />
+        )
+    }
+
     return (
-        <div className='text-center pt-5'>
-            <img className='mx-auto' src="mainLogo.png" alt="" />
-            <h1 className='text-3xl font-bold underline text-black dark:text-gray-300  mt-4'>{t('agri sathi hub')}</h1>
+        <div className="min-h-screen bg-green-50 dark:bg-gray-900">
 
-            <p><GoogleLangTran /></p>
+            {(isInitialLoading || (loading && !crops.length)) && (
+                <AgriLoader contentHeader="Analyzing Agricultural Data..." />
+            )}
+            {/* Nav passes data to setWeather state */}
+            <WeatherNav setData={setWeather} />
+
+
+            {error && (
+                <div className="text-center text-red-500 py-4 bg-red-50 border-b border-red-100">
+                    {error}
+                </div>
+            )}
+            {!isInitialLoading && (
+                <div className="max-w-7xl mx-auto px-4 pt-6 pb-10 grid lg:grid-cols-3 gap-6">
+                    {/* Left Side: Recommendations and Seasons */}
+                    <div className="lg:col-span-1 space-y-6">
+                        <BestCrops
+                            crops={crops}
+                            selectCrop={selectCrop}
+                            loading={loading}
+                        />
+                        <SeasonalCrops
+                            crops={seasonal}
+                            selectCrop={selectCrop}
+                            season={getCurrentSeason()}
+                        />
+                    </div>
+
+                    {/* Right Side: Details and Tools */}
+                    <div className="lg:col-span-2 space-y-6">
+                        {selectedCrop ? (
+                            <>
+                                <CropDetails crop={selectedCrop} />
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <Fertilizers fertilizers={fertilizers} />
+                                    <Pesticides pesticides={pesticides} />
+                                </div>
+
+                                <CropHealth health={health} />
+                                <RelatedCrops crops={related} selectCrop={selectCrop} />
+                            </>
+                        ) : (
+                            <div className="bg-white dark:bg-gray-800 p-10 rounded-xl shadow-sm text-center border-2 border-dashed border-green-200">
+                                <ServiceHub />
+                                {/* <p className="text-gray-500">
+                                {loading ? "Analyzing area data..." : "Please select a crop from the left to view specific farming data."}
+                            </p> */}
+                            </div>
+                        )}
+
+                        <div className="mt-10">
+                            <GoogleLangTran />
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
