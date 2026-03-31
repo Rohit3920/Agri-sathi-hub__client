@@ -10,11 +10,13 @@ import PageNotFound from './components/PageNotFound';
 import Login from './components/users/Login';
 import Signup from './components/users/Signup';
 import Home from './components/Home';
+import Front from './pages/Front';
 import MyProfile from './components/users/MyProfile'
 import MainMachineRentalPage from './pages/MainMachineRentalPage';
 import UpdateMachine from './components/machine-rentals/UpdateMachine'
 import MachineViewer from './components/machine-rentals/MachineViewer'
 import FarmerProfile from './components/users/FarmerProfile'
+import UpdateProfile from './components/users/UpdateProfile'
 import ServicerProfile from './components/users/ServicerProfile'
 import AddMachine from './components/machine-rentals/AddMachine'
 import Verify from './components/users/Verify'
@@ -29,6 +31,9 @@ import AgriSathiBot from './components/chatBot/AgriSathiBot'
 import GovermentSchemes from './pages/GovermentSchemes'
 import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
+import AdminPage from './pages/AdminPage'
+
+import api from './utils/api'
 
 function App() {
   const { t } = useTranslation();
@@ -36,6 +41,21 @@ function App() {
   const navbarHeight = '70px';
 
   const [chatOpen, setChatOpen] = useState(false);
+  const userId = localStorage.getItem("userId")
+  const [user, setUser] = useState([]);
+  const [userAddress, setUserAddress] = useState();
+
+  useEffect(() => {
+    const fetchUser = async (id) => {
+      const res = await api.get(`/api/auth/get-user/${id}`)
+      setUser(res.data)
+      setUserAddress(res.data.address[0])
+    }
+
+    if (userId) {
+      fetchUser(userId)
+    }
+  }, [userId])
 
   // ✅ Auto close chatbot when route changes
   useEffect(() => {
@@ -53,10 +73,10 @@ function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors text-center">
 
-      <Navbar t={t} className="fixed top-0 left-0 right-0 z-400" />
+      <Navbar t={t} user={user} className="fixed top-0 left-0 right-0 z-400" />
 
       {/* Desktop sidebar */}
-      <div
+      {userId && <><div
         className="hidden md:block fixed left-0 z-20 rounded-r-md"
         style={{
           top: `calc(${navbarHeight} + 40px)`,
@@ -66,23 +86,32 @@ function App() {
         <Sidebar t={t} />
       </div>
 
-      {/* Mobile sidebar */}
-      <Sidebar t={t} mobile />
+        {/* Mobile sidebar */}
+        <Sidebar t={t} mobile />
+      </>
+      }
 
-      <div className="ml-0 md:ml-21">
+      {/* ✅ UPDATED WIDTH LOGIC */}
+      <div className={`${userId ? "ml-0 md:ml-21" : "ml-0 w-full"}`}>
         <Routes>
+
+          {/* ✅ FRONT (NOT LOGGED) + HOME (LOGGED) */}
+          <Route 
+            path="/" 
+            element={!userId ? <Front /> : <Home t={t} />} 
+          />
+
           <Route element={<ProtectRoute />}>
-            <Route path="/" element={<Home t={t} />} />
 
             {/* machine rental routes */}
             <Route path="/add-new-machine" element={<AddMachine />} />
-            <Route path="/machine-rentals" element={<MainMachineRentalPage />} />
+            <Route path="/machine-rentals" element={<MainMachineRentalPage userAddress={userAddress} />} />
             <Route path="/machine-update/:machineId" element={<UpdateMachine />} />
             <Route path="/machine-view/:machineId" element={<MachineViewer />} />
 
             {/* labor hiring route */}
             <Route path='/dashboard' element={<Dashboard />} />
-            <Route path="/labor-hire" element={<LaborHire />} />
+            <Route path="/labor-hire" element={<LaborHire userAddress={userAddress} />} />
             <Route path="/worker/:workerId" element={<WorkerDetail />} />
             <Route path="/group/:groupId" element={<GroupDetail />} />
 
@@ -98,14 +127,17 @@ function App() {
 
             {/* messaging route */}
             <Route path="/user/messages" element={<ChatUI />} />
+            <Route path="/details" element={<UpdateProfile userData={user} />} />
             <Route path="/user/messages/:messageUserId" element={<ChatUI />} />
           </Route>
 
+          <Route path='admin/*' element={<AdminPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/about' element={<About />} />
           <Route path="*" element={<PageNotFound />} />
+
         </Routes>
       </div>
 

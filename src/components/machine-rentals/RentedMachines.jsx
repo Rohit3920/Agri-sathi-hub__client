@@ -1,51 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react';
-import api from '../../utils/api';
+import React, { useRef } from 'react';
 import MachineCardI from './MachineCardI';
 
-function RentedMachines() {
+function RentedMachines({ userAddress, rentalMachines, isLoading, error }) {
     const scrollContainerRef = useRef(null);
-    const [machinesList, setMachinesList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchMachines = async () => {
-            setIsLoading(true);
-            setError(null);
-            try {
-                const response = await api.get('/api/machine-rental/rental-history');
-                const data = response.data.data || response.data;
-                setMachinesList(data);
-                setIsLoading(false);
-            } catch (err) {
-                console.error("Failed to fetch machines:", err);
-                setError("Failed to load machine data. Please try again later.");
-                setIsLoading(false);
-            }
-        };
-
-        fetchMachines();
-    }, []);
-
-    console.log("Machines List:", machinesList);
 
     const scrollLeft = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: -300,
-                behavior: 'smooth'
-            });
-        }
+        scrollContainerRef.current?.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
     };
 
     const scrollRight = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: 300,
-                behavior: 'smooth'
-            });
-        }
+        scrollContainerRef.current?.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
     };
+
+    // ✅ FILTER LOGIC (MAIN FIX)
+    const filteredMachines = rentalMachines.filter((machine) => {
+        const address = machine.machineOwner?.address?.[0];
+
+        return (
+            userAddress?.city === address?.city ||
+            userAddress?.subDistrict === address?.subDistrict ||
+            userAddress?.zipCode === address?.zipCode ||
+            userAddress?.street === address?.street
+        );
+    });
 
     const renderContent = () => {
         if (isLoading) {
@@ -74,53 +57,50 @@ function RentedMachines() {
             );
         }
 
-        if (machinesList.length === 0) {
+        // ✅ FIX: check filteredMachines
+        if (filteredMachines.length === 0) {
             return (
                 <div className="w-full text-center p-6 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-lg mx-3">
                     <p className="font-semibold">No Machines Found 🚜</p>
-                    <p className="text-sm">It looks like there are no machine rentals or not working machines right now.</p>
+                    <p className="text-sm">
+                        No working machines available in your area right now.
+                    </p>
                 </div>
             );
         }
 
-        // Render actual machine cards
+        // ✅ Render FILTERED machines only
         return (
             <>
-                {machinesList.map((machine) => (
+                {filteredMachines.map((machine) => (
                     <MachineCardI key={machine._id} machine={machine} />
                 ))}
             </>
         );
     };
 
-
     return (
         <div className="container mx-auto pt-5">
             <div className="mb-8">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-                        Working machines for rent in your areas
+                        Working machines for rent in your area
                     </h2>
 
-                    {machinesList.length > 0 && !isLoading && !error && (
+                    {/* ✅ Use filteredMachines here too */}
+                    {filteredMachines.length > 0 && !isLoading && !error && (
                         <div className="flex space-x-2">
                             <button
                                 onClick={scrollLeft}
                                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition duration-200"
-                                aria-label="Scroll Left"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
+                                ←
                             </button>
                             <button
                                 onClick={scrollRight}
                                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition duration-200"
-                                aria-label="Scroll Right"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
+                                →
                             </button>
                         </div>
                     )}

@@ -1,34 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import api from '../../utils/api';
+import React, { useRef } from 'react';
 import MachineCardI from './MachineCardI';
 
-function AvailableMachines() {
+function AvailableMachines({ userAddress, availableMachinesList, isLoading, error }) {
     const scrollContainerRef = useRef(null);
-    const [machinesList, setMachinesList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); // New loading state
-    const [error, setError] = useState(null); // New error state
-
-    // --- Data Fetching Effect with Error/Loading Handling ---
-    useEffect(() => {
-        const fetchMachines = async () => {
-            setIsLoading(true);
-            setError(null);
-            try {
-                const response = await api.get('/api/machine-rental/available-machines');
-                const data = response.data.data || response.data;
-                setMachinesList(data);
-                setIsLoading(false);
-            } catch (err) {
-                console.error("Failed to fetch machines:", err);
-                setError("Failed to load machine data. Please try again later.");
-                setIsLoading(false);
-            }
-        };
-
-        fetchMachines();
-    }, []);
-
-    console.log("Machines List:", machinesList);
 
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
@@ -47,6 +21,18 @@ function AvailableMachines() {
             });
         }
     };
+
+    // ✅ FILTER LOGIC (IMPORTANT FIX)
+    const filteredMachines = availableMachinesList.filter((machine) => {
+        const address = machine.machineOwner?.address?.[0];
+
+        return (
+            userAddress?.city === address?.city ||
+            userAddress?.subDistrict === address?.subDistrict ||
+            userAddress?.zipCode === address?.zipCode ||
+            userAddress?.street === address?.street
+        );
+    });
 
     const renderContent = () => {
         if (isLoading) {
@@ -75,18 +61,19 @@ function AvailableMachines() {
             );
         }
 
-        if (machinesList.length === 0) {
+        // ✅ FIX: check filteredMachines instead of full list
+        if (filteredMachines.length === 0) {
             return (
                 <div className="w-full text-center p-6 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-lg mx-3">
                     <p className="font-semibold">No Machines Found 🚜</p>
-                    <p className="text-sm">It looks like there are no machine available right now.</p>
+                    <p className="text-sm">It looks like there are no machines available in your area.</p>
                 </div>
             );
         }
 
-        // Render actual machine cards
         return (
             <>
+                {/* View All Card */}
                 <div className='flex-shrink-0 bg-white p-4 rounded-xl shadow-md flex flex-col items-center justify-center h-80 w-48 border border-gray-300 hover:shadow-lg transition duration-200 mr-3'>
                     <button className="flex flex-col items-center justify-center h-full">
                         <svg
@@ -106,13 +93,14 @@ function AvailableMachines() {
                         <span className="text-indigo-600 font-semibold">View All</span>
                     </button>
                 </div>
-                {machinesList.map((machine) => (
+
+                {/* ✅ Render FILTERED machines */}
+                {filteredMachines.map((machine) => (
                     <MachineCardI key={machine._id} machine={machine} />
                 ))}
             </>
         );
     };
-
 
     return (
         <div className="container mx-auto pt-5">
@@ -122,25 +110,19 @@ function AvailableMachines() {
                         Available Machines for Rent in Your Area
                     </h2>
 
-                    {machinesList.length > 0 && !isLoading && !error && (
+                    {filteredMachines.length > 0 && !isLoading && !error && (
                         <div className="flex space-x-2">
                             <button
                                 onClick={scrollLeft}
                                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition duration-200"
-                                aria-label="Scroll Left"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
+                                ←
                             </button>
                             <button
                                 onClick={scrollRight}
                                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition duration-200"
-                                aria-label="Scroll Right"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
+                                →
                             </button>
                         </div>
                     )}

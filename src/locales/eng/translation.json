@@ -8,7 +8,7 @@
     "Navbar" : {
         "home": "Home",
         "machine Rentals": "Machine Rentals",
-        "labor Hire": "Labor Hire",
+        "labor Hire": "Labour Hire",
         "eGov Services": "eGov Services",
         "support": "Support",
         "about": "About",
@@ -20,6 +20,7 @@
         "profile": "Profile",
         "settings": "Settings",
         "help": "Help",
+        "messages" : "messages",
         "logout": "Logout",
         "Are-you-sure": "Are you sure?",
         "Do-you-want-to-log-out": "Do you want to log out?",
