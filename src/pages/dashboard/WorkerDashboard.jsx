@@ -25,6 +25,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UserPlus, LayoutDashboard, Bell } from 'lucide-react';
+import  { useNavigate } from 'react-router-dom';
 
 // Import child components
 import { WorkStats, WorkProgressBar } from './WorkStats';
@@ -33,6 +34,7 @@ import RequestPanel from './RequestPanel'; // Reusing your RequestPanel
 
 function WorkerDashboard() {
     // Mock State (Replace with your actual API calls)
+    const navigate = useNavigate();
     const [hasGroup, setHasGroup] = useState(true);
     const [workerData, setWorkerData] = useState({
         stats: { done: 12, total: 15, groupSize: 5 },
@@ -63,9 +65,17 @@ function WorkerDashboard() {
                         </h2>
                         <p className="text-gray-500 dark:text-gray-400">Manage your work, groups, and rental requests.</p>
                     </div>
-                    <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center gap-2">
-                        <UserPlus size={18} /> Find New Work
+                    <button className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-bold shadow-lg shadow-green-200 dark:shadow-none transition-all flex items-center" onClick={()=> navigate("/worker/create-worker")}>
+                        Create Worker Profile
                     </button>
+
+                    <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center" onClick={()=> navigate("/group/create-group")}>
+                        Create Group Profile
+                    </button>
+
+                    {/* <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center gap-2"> */}
+                        {/* <UserPlus size={18} /> Find New Work */}
+                    {/* </button> */}
                 </div>
 
                 {/* Top Section: Progress & Requests (Matching Sketch) */}

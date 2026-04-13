@@ -5,6 +5,7 @@ import LaborFilterNavbar from "../components/labor-hiring/LaborFilterNavbar";
 import api from "../utils/api.jsx";
 import { motion } from "framer-motion";
 import { useTrail, animated } from "@react-spring/web";
+import Footer from '../components/Footer.jsx';
 
 export default function LaborHire() {
     const workerScrollRef = useRef(null);
@@ -215,6 +216,7 @@ export default function LaborHire() {
                 </motion.div>
 
             </div>
+            <Footer />
         </div>
     );
 }

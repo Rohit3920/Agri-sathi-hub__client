@@ -4,6 +4,7 @@ import RentedMachines from "../components/machine-rentals/RentedMachines";
 import AvailableMachines from "../components/machine-rentals/AvailableMachines";
 import FilterNavbar from "../components/machine-rentals/FilterNavbar";
 import api from "../utils/api";
+import Footer from "../components/Footer";
 
 function MainMachineRentalPage({ userAddress }) {
     const [availableMachinesList, setAvailableMachinesList] = useState([]);
@@ -162,6 +163,7 @@ function MainMachineRentalPage({ userAddress }) {
                     error={error}
                 />
             )}
+            <Footer />
         </div>
     );
 }

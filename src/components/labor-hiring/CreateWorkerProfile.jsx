@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import api from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 const CreateWorkerProfile = ({ userId }) => {
+    const myId = userId || localStorage.getItem('userId'); // Fallback to localStorage if not passed as prop
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        userId: userId || '', 
+        userId: myId,
         skills: [''], // Initialized as an array with one empty string
         experience: 0,
         dailyWage: '',
@@ -53,6 +56,7 @@ const CreateWorkerProfile = ({ userId }) => {
 
             setMessage({ type: 'success', text: 'Profile updated successfully!' });
             console.log("Response:", response.data);
+            navigate('/dashboard'); // Redirect to dashboard after successful profile creation
         } catch (error) {
             setMessage({
                 type: 'error',
@@ -88,8 +92,8 @@ const CreateWorkerProfile = ({ userId }) => {
                                 required={index === 0} // Ensure at least one skill is filled
                             />
                             {formData.skills.length > 1 && (
-                                <button 
-                                    type="button" 
+                                <button
+                                    type="button"
                                     onClick={() => removeSkillField(index)}
                                     className="text-red-500 hover:text-red-700 text-lg font-bold px-1"
                                 >

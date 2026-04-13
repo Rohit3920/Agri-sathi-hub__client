@@ -177,8 +177,6 @@ export default function Front() {
             <div id="about">
                 <About />
             </div>
-
-            <Footer />
         </div>
     );
 }

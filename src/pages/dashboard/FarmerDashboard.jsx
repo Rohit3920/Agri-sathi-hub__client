@@ -4,10 +4,12 @@ import { Search, MapPin, Filter, PlusCircle } from 'lucide-react';
 import { BookingStats } from './farmer/BookingStats';
 import { ServiceTracker } from './farmer/ServiceTracker';
 import RequestPanel from './RequestPanel';
+import { useNavigate } from "react-router-dom"
 import api from '../../utils/api';
 
 
 function FarmerDashboard() {
+    const navigate = useNavigate();
     const userId = localStorage.getItem('userId');
     const [myMachines, setMyMachines] = useState([]);
     const [myHireRequests, setMyHireRequests] = useState([]);
@@ -87,8 +89,8 @@ function FarmerDashboard() {
                                 <h3 className="text-2xl font-black mb-2">Need more help?</h3>
                                 <p className="opacity-80 mb-6 max-w-md">Browse available machines and verified labor groups in your area of Pimpri-Chinchwad.</p>
                                 <div className="flex gap-4">
-                                    <button className="px-6 py-3 bg-white text-indigo-600 rounded-xl font-black text-sm uppercase">Hire Machine</button>
-                                    <button className="px-6 py-3 bg-indigo-500 text-white border border-indigo-400 rounded-xl font-black text-sm uppercase">Hire Workers</button>
+                                    <button className="px-6 py-3 bg-white text-indigo-600 rounded-xl font-black text-sm uppercase" onClick={()=>navigate('/machine-rentals')}>Hire Machine</button>
+                                    <button className="px-6 py-3 bg-indigo-500 text-white border border-indigo-400 rounded-xl font-black text-sm uppercase" onClick={()=> navigate('/labor-hire')}>Hire Workers</button>
                                 </div>
                             </div>
                             {/* Decorative Circle */}

@@ -34,6 +34,11 @@ import Settings from './pages/Settings'
 import AdminPage from './pages/AdminPage'
 
 import api from './utils/api'
+import AdminLogin from './components/admin/AdminLogin'
+import CreateWorkerProfile from './components/labor-hiring/CreateWorkerProfile'
+import CreateWorkerGroup from './components/labor-hiring/CreateWorkerGroup'
+import GoogleLangTran from './components/language/GoogleLangTran'
+// import WeatherDetails from './components/admin/weather/WeatherDetails'
 
 function App() {
   const { t } = useTranslation();
@@ -70,6 +75,11 @@ function App() {
     location.pathname === "/dashboard" ||
     location.pathname === "/profile";
 
+    if (!location.pathname.startsWith("/admin")) {
+      sessionStorage.removeItem("adminToken");
+      sessionStorage.removeItem("isAdmin");
+    }
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors text-center">
 
@@ -96,9 +106,9 @@ function App() {
         <Routes>
 
           {/* ✅ FRONT (NOT LOGGED) + HOME (LOGGED) */}
-          <Route 
-            path="/" 
-            element={!userId ? <Front /> : <Home t={t} />} 
+          <Route
+            path="/"
+            element={!userId ? <Front /> : <Home t={t} />}
           />
 
           <Route element={<ProtectRoute />}>
@@ -114,6 +124,9 @@ function App() {
             <Route path="/labor-hire" element={<LaborHire userAddress={userAddress} />} />
             <Route path="/worker/:workerId" element={<WorkerDetail />} />
             <Route path="/group/:groupId" element={<GroupDetail />} />
+            <Route path="/group/create-group" element={<CreateWorkerGroup />} />
+            <Route path="/worker/create-worker" element={<CreateWorkerProfile />} />
+
 
             {/* user routes */}
             <Route path="/profile" element={<MyProfile />} />
@@ -131,6 +144,7 @@ function App() {
             <Route path="/user/messages/:messageUserId" element={<ChatUI />} />
           </Route>
 
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path='admin/*' element={<AdminPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/verify" element={<Verify />} />
@@ -140,6 +154,8 @@ function App() {
 
         </Routes>
       </div>
+
+      <GoogleLangTran lang={localStorage.getItem("appLang") || "en"} />
 
       {/* ✅ FLOATING CHATBOT */}
       {!hideChatbot && (

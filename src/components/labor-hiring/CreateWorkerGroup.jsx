@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import api from '../../utils/api';
 import { Camera } from "lucide-react";
 import UploadHireWorkerGroupImage from "../uploadImages/UploadHireWorkerGroupImage";
+import { useNavigate } from 'react-router-dom';
 
 const CreateWorkerGroup = ({ leaderId }) => {
+    const myId = leaderId || localStorage.getItem('userId'); // Fallback to localStorage if not passed as prop
     const [showUpload, setShowUpload] = useState(false);
     const [formData, setFormData] = useState({
         groupImage: '', // Stores the URL returned from the server
         groupName: '',
-        leaderId: leaderId || '',
+        leaderId: myId,
         members: [''],
         skills: [''],
         groupWagePerDay: '',
         availability: true
     });
 
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -61,6 +64,7 @@ const CreateWorkerGroup = ({ leaderId }) => {
 
             await api.post('/api/labor/worker-group', payload);
             setMessage({ type: 'success', text: 'Group created successfully!' });
+            navigate('/dashboard'); // Redirect to dashboard after successful group creation
         } catch (error) {
             setMessage({
                 type: 'error',

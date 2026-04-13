@@ -12,6 +12,7 @@ import CropHealth from "./home/CropHealth";
 import RelatedCrops from "./home/RelatedCrops";
 import SeasonalCrops from "./home/SeasonalCrops";
 import ServiceHub from "./home/ServiceHub";
+import Footer from "./Footer"
 
 const Home = () => {
     const [crops, setCrops] = useState([]);
@@ -203,12 +204,13 @@ const Home = () => {
                             </div>
                         )}
 
-                        <div className="mt-10">
+                        {/* <div className="mt-10">
                             <GoogleLangTran />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             )}
+            <Footer />
         </div>
     );
 };

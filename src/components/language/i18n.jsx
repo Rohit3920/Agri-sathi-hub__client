@@ -28,24 +28,24 @@ import urdu from '../../locales/Urdu/translation.json'
 
 i18n.use(initReactI18next).init({
     resources: {
-        eng: { translation: eng },
-        hindi: { translation: hindi },
-        mar: { translation: mar },
-        assam: { translation: assam },
-        beng: { translation: beng },
-        bodo: { translation: bodo },
-        dogri: { translation: dogri },
-        guj: { translation: guj },
-        kanna: { translation: kanna },
-        kashmiri: { translation: kashmiri },
-        kokan: { translation: kokan },
-        maithi: { translation: maithi },
-        malay: { translation: malay },
-        manipuri: { translation: manipuri },
-        nepali: { translation: nepali },
-        odia: { translation: odia },
-        punjabi: { translation: punjabi },
-        sanskrit: { translation: sanskrit },
+        en: { translation: eng },
+        hi: { translation: hindi },
+        mr: { translation: mar },
+        as: { translation: assam },
+        bn: { translation: beng },
+        brx: { translation: bodo },
+        doi: { translation: dogri },
+        gu: { translation: guj },
+        kn: { translation: kanna },
+        ks: { translation: kashmiri },
+        gom: { translation: kokan },
+        mai: { translation: maithi },
+        ml: { translation: malay },
+        mni: { translation: manipuri },
+        ne: { translation: nepali },
+        or: { translation: odia },
+        pa: { translation: punjabi },
+        sa: { translation: sanskrit },
         santali: { translation: santali },
         sindhi: { translation: sindhi },
         tamil: { translation: tamil },
@@ -53,7 +53,7 @@ i18n.use(initReactI18next).init({
         urdu: { translation: urdu }
     },
 
-    fallbackLng: 'eng',
+    fallbackLng: 'en',
 
     interpolation: {
         escapeValue: false

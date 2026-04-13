@@ -37,6 +37,7 @@ const WeatherNav = ({setData}) => {
         try {
             const params = lat ? `lat=${lat}&lon=${lon}` : `city=${city}`;
             const res = await api.get(`api/weather/forecast?${params}`);
+            console.log(res.data);
             setWeather(res.data);
             setData({current : res.data.current, location: res.data.location}); // Pass current weather and location to parent
             setError(null);
@@ -75,7 +76,7 @@ const WeatherNav = ({setData}) => {
                                 src={weather?.current?.icon?.startsWith("//")
                                     ? `https:${weather.current.icon}`
                                     : (weather?.current?.icon?.length === 3 
-                                        ? `https://openweathermap.org/img/wn/${weather.current.icon}@2x.png` 
+                                        ? `https://openweathermap.org/img/wn/${weather.current.icon}@2x.png`
                                         : weather?.current?.icon)}
                                 alt="weather"
                                 className="w-12 h-12"
@@ -84,7 +85,8 @@ const WeatherNav = ({setData}) => {
                             <div>
                                 <h2 className="font-semibold text-gray-800 dark:text-gray-200">
                                     {/* Maps to the City, State structure */}
-                                    {weather.location.city || weather.location.name}
+                                    {/* {weather.location.city || weather.location.name} */}
+                                    {weather.location.region || weather.location.name}
                                     {weather.location.state ? `, ${weather.location.state}` : ""}
                                 </h2>
                                 <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -173,7 +175,9 @@ const WeatherNav = ({setData}) => {
 
                             <div>
                                 <p className="font-semibold text-gray-800 dark:text-gray-200">
-                                    {weather.location.city || weather.location.name}
+                                    {/* {weather.location.city || weather.location.name} */}
+                                    {weather.location.region || weather.location.name}
+
                                 </p>
                                 <p className="text-xs text-gray-500 dark:text-gray-400">
                                     {weather.current.condition}

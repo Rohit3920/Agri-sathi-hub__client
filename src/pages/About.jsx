@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Footer from "../components/Footer";
 
 const aboutData = {
   "Who We Are": {
@@ -132,6 +133,7 @@ export default function About() {
           </AnimatePresence>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

@@ -23,16 +23,14 @@ function AnimatedImageUpload({ title, uploadEndpoint, onClose, onUploadSuccess }
 
             const finalUrl = res.data.imageUrl;
             setImageUrl(finalUrl);
-            
             // Send the URL back to the parent form
             if (onUploadSuccess) {
                 onUploadSuccess(finalUrl);
             }
-            
             toast.success("Image uploaded successfully!");
         } catch (err) {
             setError("Upload failed. Please try again.");
-            toast.error("Upload failed.");
+            toast.error("Upload failed.", err);
         } finally {
             setIsUploading(false);
         }

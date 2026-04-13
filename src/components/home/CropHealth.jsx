@@ -1,7 +1,7 @@
 import React from "react";
 
 const CropHealth = ({ health }) => {
-
+    console.log("Crop Health Data:", health); // Debug log
     if (!health) return null;
 
     return (
@@ -16,6 +16,12 @@ const CropHealth = ({ health }) => {
                     : "text-red-500"
                 }`}>
                 {health.status}
+
+                {health.issues.length > 0 && (
+                    <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                        Issues: {health.issues.join(", ")}
+                    </div>
+                )}
             </div>
 
         </div>
