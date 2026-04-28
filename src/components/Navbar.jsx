@@ -125,6 +125,10 @@ export default function Navbar({ user }) {
                 {userId && <Link to="/about" className="hover:text-purple-600 dark:hover:text-white">
                     {t('Navbar.about')}
                 </Link>}
+
+                {userId && <Link to="/agri-sathi-hub/our-team" className="hover:text-purple-600 dark:hover:text-white">
+                    {t('Navbar.contact')}
+                </Link>}
             </div>
 
             {/* Right Section */}

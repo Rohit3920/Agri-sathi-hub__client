@@ -151,7 +151,7 @@ const Home = () => {
     }
 
     return (
-        <div className="min-h-screen bg-green-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-green-50 dark:bg-gray-900 capitalize">
 
             {(isInitialLoading || (loading && !crops.length)) && (
                 <AgriLoader contentHeader="Analyzing Agricultural Data..." />

@@ -32,6 +32,7 @@ import GovermentSchemes from './pages/GovermentSchemes'
 import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import AdminPage from './pages/AdminPage'
+import ContactTeam from './components/ContactTeam'
 
 import api from './utils/api'
 import AdminLogin from './components/admin/AdminLogin'
@@ -82,7 +83,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors text-center">
-
       <Navbar t={t} user={user} className="fixed top-0 left-0 right-0 z-400" />
 
       {/* Desktop sidebar */}
@@ -112,7 +112,6 @@ function App() {
           />
 
           <Route element={<ProtectRoute />}>
-
             {/* machine rental routes */}
             <Route path="/add-new-machine" element={<AddMachine />} />
             <Route path="/machine-rentals" element={<MainMachineRentalPage userAddress={userAddress} />} />
@@ -126,7 +125,6 @@ function App() {
             <Route path="/group/:groupId" element={<GroupDetail />} />
             <Route path="/group/create-group" element={<CreateWorkerGroup />} />
             <Route path="/worker/create-worker" element={<CreateWorkerProfile />} />
-
 
             {/* user routes */}
             <Route path="/profile" element={<MyProfile />} />
@@ -150,12 +148,14 @@ function App() {
           <Route path="/verify" element={<Verify />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/about' element={<About />} />
+          <Route path="/agri-sathi-hub/our-team" element={<ContactTeam />} />
           <Route path="*" element={<PageNotFound />} />
-
         </Routes>
       </div>
 
-      <GoogleLangTran lang={localStorage.getItem("appLang") || "en"} />
+      <div className='hide-content'>
+        <GoogleLangTran lang={localStorage.getItem("appLang") || "en"} />
+      </div>
 
       {/* ✅ FLOATING CHATBOT */}
       {!hideChatbot && (
@@ -185,7 +185,6 @@ function App() {
           </button>
         </div>
       )}
-
     </div>
   )
 }
