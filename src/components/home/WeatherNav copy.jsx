@@ -3,23 +3,16 @@ import api from "../../utils/api";
 
 const WeatherNav = ({ setData, setIsSettingsOpen }) => {
     const [weather, setWeather] = useState(null);
-    const userId = localStorage.getItem("userId");
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [isScrolled, setIsScrolled] = useState(false);
 
-    console.log("WeatherNav Rendered - User:", user);
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                (pos) => {
-                    if(user.location.coordinates[0] === 0 && user.location.coordinates[1] === 0) {
-                        fetchWeather(null, pos.coords.latitude, pos.coords.longitude);
-                    } else {
-                        fetchWeather(null, user.location?.coordinates[1], user.location?.coordinates[0]);
-                    }
-                },
+                (pos) =>
+                    fetchWeather(null, pos.coords.latitude, pos.coords.longitude),
                 () => {
                     setError("Location access denied. Showing default: Mumbai");
                     fetchWeather("Mumbai");
@@ -28,19 +21,8 @@ const WeatherNav = ({ setData, setIsSettingsOpen }) => {
         } else {
             fetchWeather("Mumbai");
         }
-    }, [user]);
+    }, []);
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-            const res = await api.get(`/api/auth/get-user/${userId}`)
-                setUser(res.data);
-            } catch {
-                setError("Could not load user data.");
-            }
-        };
-        fetchUser();
-    }, [userId]);
 
     // Detect page scroll
     useEffect(() => {
@@ -105,9 +87,9 @@ const WeatherNav = ({ setData, setIsSettingsOpen }) => {
                             <div>
                                 <h2 className="font-semibold text-gray-800 dark:text-gray-200">
                                     {/* Maps to the City, State structure */}
-                                    {user.address[0]?.city || weather.location.name},
+                                    {/* {weather.location.city || weather.location.name} */}
                                     {weather.location.region || weather.location.name}
-                                    {/* {weather.location.state ? `, ${weather.location.state}` : ""} */}
+                                    {weather.location.state ? `, ${weather.location.state}` : ""}
                                 </h2>
                                 <p className="text-sm text-gray-500 dark:text-gray-400">
                                     {weather.current.condition}

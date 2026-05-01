@@ -12,9 +12,22 @@ import CropHealth from "./home/CropHealth";
 import RelatedCrops from "./home/RelatedCrops";
 import SeasonalCrops from "./home/SeasonalCrops";
 import ServiceHub from "./home/ServiceHub";
+import EnvironmentalSettings from "./home/EnvironmentalSettings";
 import Footer from "./Footer"
 
 const Home = () => {
+
+    // Helper to handle session-like cookies
+    const setSessionCookie = (name, value) => {
+        document.cookie = `${name}=${value}; path=/; max-age=86400`; // 24 hour expiry
+    };
+    const getSessionCookie = (name, defaultValue) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return defaultValue;
+    };
+
     const [crops, setCrops] = useState([]);
     const [weather, setWeather] = useState(null);
     const [selectedCrop, setSelectedCrop] = useState(null);
@@ -23,10 +36,38 @@ const Home = () => {
     const [related, setRelated] = useState([]);
     const [seasonal, setSeasonal] = useState([]);
     const [health, setHealth] = useState(null);
+    // Initialize state from cookies or defaults
+    const [ manualModeForm, setManualModeForm ] = useState({
+        rainfall: Number(getSessionCookie("rainfall", 1400)),
+        phLevel: Number(getSessionCookie("phLevel", 6.5)),
+        soilType: getSessionCookie("soilType", "loamy"),
+        n : Number(getSessionCookie("n", 80)),
+        p : Number(getSessionCookie("p", 40)),
+        k : Number(getSessionCookie("k", 40))
+    });
+    // const [rainfall, setRainfall] = useState(Number(getSessionCookie("rainfall", 1400)));
+    // const [phLevel, setPhLevel] = useState(Number(getSessionCookie("phLevel", 6.5)));
+    // const [soilType, setSoilType] = useState(getSessionCookie("soilType", "loamy"));
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isInitialLoading, setIsInitialLoading] = useState(true);
+
+    const handleSaveSettings = (newData) => {
+        setManualModeForm({ ...manualModeForm, rainfall: newData.rainfall, phLevel: newData.phLevel, soilType: newData.soilType, n: newData.n, p: newData.p, k: newData.k });
+
+        // Save to Cookies
+        setSessionCookie("rainfall", newData.rainfall);
+        setSessionCookie("phLevel", newData.phLevel);
+        setSessionCookie("soilType", newData.soilType);
+        setSessionCookie("n", newData.n);
+        setSessionCookie("p", newData.p);
+        setSessionCookie("k", newData.k);
+
+        // Re-run predictions with new data
+        if (weather) loadPredictions();
+    };
 
     useEffect(() => {
         const initHome = async () => {
@@ -66,32 +107,25 @@ const Home = () => {
 
     const loadPredictions = async () => {
         setLoading(true);
-        setError(null);
-        setSelectedCrop(null); // Clear previous selection
-
         try {
-            // SUGGESTION: In a real 2026 app, fetch totalRainfall and soilPH 
-            // from the external APIs mentioned in the guide before this call.
-
             const res = await api.post("/api/crops/predict", {
                 temp: weather?.current?.temp_c || 25,
                 humidity: weather?.current?.humidity || 70,
-                rainfall: 1400, // Replace with dynamic accumulated rain logic
-                phLevel: 6.5,  // Replace with dynamic SoilGrids logic
-                soilType: "loamy",
-                n: 80,
-                p: 40,
-                k: 40
+                rainfall: manualModeForm.rainfall,
+                phLevel: manualModeForm.phLevel,
+                soilType: manualModeForm.soilType,
+                n: manualModeForm.n,
+                p: manualModeForm.p,
+                k: manualModeForm.k
+                // n: 80, p: 40, k: 40
             });
-
             setCrops(res.data || []);
         } catch (err) {
-            console.error("Prediction error:", err);
-            setError("Failed to generate crop recommendations");
+            setError("Failed to generate recommendations");
         } finally {
             setLoading(false);
         }
-    };
+    }
 
     const loadSeasonal = async () => {
         try {
@@ -123,10 +157,10 @@ const Home = () => {
                 api.get(`/api/crops/${cropId}/related`),
                 api.post("/api/crops/health", {
                     cropId,
-                    n: 70,
-                    p: 35,
-                    k: 40,
-                    rainfall: 1200
+                    n: manualModeForm.n,
+                    p: manualModeForm.p,
+                    k: manualModeForm.k,
+                    rainfall: manualModeForm.rainfall
                 })
             ]);
 
@@ -153,65 +187,78 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-green-50 dark:bg-gray-900 capitalize">
 
-            {(isInitialLoading || (loading && !crops.length)) && (
-                <AgriLoader contentHeader="Analyzing Agricultural Data..." />
-            )}
+            {
+                (isInitialLoading || (loading && !crops.length)) && (
+                    <AgriLoader contentHeader="Analyzing Agricultural Data..." />
+                )
+            }
             {/* Nav passes data to setWeather state */}
-            <WeatherNav setData={setWeather} />
-
-
-            {error && (
-                <div className="text-center text-red-500 py-4 bg-red-50 border-b border-red-100">
-                    {error}
-                </div>
-            )}
-            {!isInitialLoading && (
-                <div className="max-w-7xl mx-auto px-4 pt-6 pb-10 grid lg:grid-cols-3 gap-6">
-                    {/* Left Side: Recommendations and Seasons */}
-                    <div className="lg:col-span-1 space-y-6">
-                        <BestCrops
-                            crops={crops}
-                            selectCrop={selectCrop}
-                            loading={loading}
-                        />
-                        <SeasonalCrops
-                            crops={seasonal}
-                            selectCrop={selectCrop}
-                            season={getCurrentSeason()}
-                        />
+            <WeatherNav setData={setWeather} setIsSettingsOpen={setIsSettingsOpen} />
+            {
+                error && (
+                    <div className="text-center text-red-500 py-4 bg-red-50 border-b border-red-100">
+                        {error}
                     </div>
+                )
+            }
+            {
+                !isInitialLoading && (
+                    <div className="max-w-7xl mx-auto px-4 pt-6 pb-10 grid lg:grid-cols-3 gap-6">
+                        {/* Left Side: Recommendations and Seasons */}
+                        <div className="lg:col-span-1 space-y-6">
+                            <BestCrops
+                                crops={crops}
+                                selectCrop={selectCrop}
+                                loading={loading}
+                            />
+                            <SeasonalCrops
+                                crops={seasonal}
+                                selectCrop={selectCrop}
+                                season={getCurrentSeason()}
+                            />
+                        </div>
 
-                    {/* Right Side: Details and Tools */}
-                    <div className="lg:col-span-2 space-y-6">
-                        {selectedCrop ? (
-                            <>
-                                <CropDetails crop={selectedCrop} />
+                        {/* Right Side: Details and Tools */}
+                        <div className="lg:col-span-2 space-y-6">
+                            {selectedCrop ? (
+                                <>
+                                    <CropDetails crop={selectedCrop} />
 
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <Fertilizers fertilizers={fertilizers} />
-                                    <Pesticides pesticides={pesticides} />
-                                </div>
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <Fertilizers fertilizers={fertilizers} />
+                                        <Pesticides pesticides={pesticides} />
+                                    </div>
 
-                                <CropHealth health={health} />
-                                <RelatedCrops crops={related} selectCrop={selectCrop} />
-                            </>
-                        ) : (
-                            <div className="bg-white dark:bg-gray-800 p-10 rounded-xl shadow-sm text-center border-2 border-dashed border-green-200">
-                                <ServiceHub />
-                                {/* <p className="text-gray-500">
+                                    <CropHealth health={health} />
+                                    <RelatedCrops crops={related} selectCrop={selectCrop} />
+                                </>
+                            ) : (
+                                <div className="bg-white dark:bg-gray-800 p-10 rounded-xl shadow-sm text-center border-2 border-dashed border-green-200">
+                                    <ServiceHub />
+                                    {/* <p className="text-gray-500">
                                 {loading ? "Analyzing area data..." : "Please select a crop from the left to view specific farming data."}
                             </p> */}
-                            </div>
-                        )}
+                                </div>
+                            )}
 
-                        {/* <div className="mt-10">
+                            {/* <div className="mt-10">
                             <GoogleLangTran />
                         </div> */}
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
+            {/* 2. The New Floating Form Component */}
+            <EnvironmentalSettings
+                isOpen={isSettingsOpen}
+                onClose={() => setIsSettingsOpen(false)}
+                onSave={handleSaveSettings}
+                manualModeForm={manualModeForm}
+                setManualModeForm={setManualModeForm}
+                // initialData={{ rainfall: manualModeForm.rainfall, phLevel: manualModeForm.phLevel, soilType: manualModeForm.soilType }}
+            />
             <Footer />
-        </div>
+        </div >
     );
 };
 

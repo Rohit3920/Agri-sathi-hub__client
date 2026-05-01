@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
     const { t } = useTranslation();
-    const [loginMethod, setLoginMethod] = useState("otp"); // "otp" | "password"
+    const [loginMethod, setLoginMethod] = useState("password"); // "otp" | "password"
 
 
     return (
@@ -17,10 +17,10 @@ function Login() {
                 <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">
                     {t('loginComponent.user-login')}
                 </h2>
-                <div className="flex justify-center mb-6">
+                {/*<div className="flex justify-center mb-6">
                     <button
                         onClick={() => setLoginMethod("otp")}
-                        className={`px-4 py-2 rounded-lg ${loginMethod === "otp" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"}`}
+                        // // className={`px-4 py-2 rounded-lg ${loginMethod === "otp" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"}`}
                     >
                         {t('loginComponent.otp-login')}
                     </button>
@@ -30,9 +30,9 @@ function Login() {
                     >
                         {t('loginComponent.password-login')}
                     </button>
-                </div>
+                </div>*/}
 
-                {loginMethod === "otp" ? <OtpLogin t={t} /> : <PasswordLogin t={t} />}
+                {loginMethod === "password" ? <PasswordLogin t={t} /> : <OtpLogin t={t} />}
 
                 <p className="text-center text-sm mt-4 text-gray-500 dark:text-gray-400">
                     {t('loginComponent.dont-have-an-account')}{" "}

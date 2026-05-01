@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-    Users, Settings2, UserCog, CalendarCheck, 
-    FileText, LayoutDashboard, Briefcase, Boxes 
+import {
+    Users, Settings2, UserCog, CalendarCheck,
+    FileText, LayoutDashboard, Briefcase, Boxes
 } from "lucide-react";
 import api from "../../../utils/api";
 import AgriLoader from "../../commonComponent/AgriLoader";
@@ -24,13 +24,12 @@ const Dashboard = () => {
         const fetchDashboardData = async () => {
             try {
                 setLoading(true);
-                
                 const [
-                    workerRes, 
-                    groupRes, 
-                    schemeRes, 
-                    machineRes, 
-                    machineBookings, 
+                    workerRes,
+                    groupRes,
+                    schemeRes,
+                    machineRes,
+                    machineBookings,
                     laborBookings,
                     userRes
                 ] = await Promise.all([
@@ -82,58 +81,58 @@ const Dashboard = () => {
 
             {/* Stats Grid */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <CountCard 
-                    title="Available Workers" 
-                    count={counts.workers} 
-                    icon={<UserCog size={32} />} 
-                    color="bg-blue-500" 
-                    path="/admin/labor" 
+
+                <CountCard
+                    title="Available Workers"
+                    count={counts.workers}
+                    icon={<UserCog size={32} />}
+                    color="bg-blue-500"
+                    path="/admin/labor"
                     navigate={navigate}
                 />
 
-                <CountCard 
-                    title="Worker Groups" 
-                    count={counts.workerGroups} 
-                    icon={<Boxes size={32} />} 
-                    color="bg-purple-500" 
-                    path="/admin/labor" 
+                <CountCard
+                    title="Worker Groups"
+                    count={counts.workerGroups}
+                    icon={<Boxes size={32} />}
+                    color="bg-purple-500"
+                    path="/admin/labor"
                     navigate={navigate}
                 />
 
-                <CountCard 
-                    title="Active Schemes" 
-                    count={counts.schemes} 
-                    icon={<FileText size={32} />} 
-                    color="bg-green-600" 
-                    path="/admin/schemes" 
+                <CountCard
+                    title="Active Schemes"
+                    count={counts.schemes}
+                    icon={<FileText size={32} />}
+                    color="bg-green-600"
+                    path="/admin/schemes"
                     navigate={navigate}
                 />
 
-                <CountCard 
-                    title="Total Machines" 
-                    count={counts.machines} 
-                    icon={<Settings2 size={32} />} 
-                    color="bg-orange-500" 
-                    path="/admin/machines" 
+                <CountCard
+                    title="Total Machines"
+                    count={counts.machines}
+                    icon={<Settings2 size={32} />}
+                    color="bg-orange-500"
+                    path="/admin/machines"
                     navigate={navigate}
                 />
 
-                <CountCard 
-                    title="Total Bookings" 
-                    count={counts.bookings} 
-                    icon={<CalendarCheck size={32} />} 
-                    color="bg-rose-500" 
-                    path="/admin/bookings" 
+                <CountCard
+                    title="Total Bookings"
+                    count={counts.bookings}
+                    icon={<CalendarCheck size={32} />}
+                    color="bg-rose-500"
+                    path="/admin/bookings"
                     navigate={navigate}
                 />
 
-                <CountCard 
-                    title="System Users" 
-                    count={counts.users} 
-                    icon={<Users size={32} />} 
-                    color="bg-indigo-600" 
-                    path="/admin/users" 
+                <CountCard
+                    title="System Users"
+                    count={counts.users}
+                    icon={<Users size={32} />}
+                    color="bg-indigo-600"
+                    path="/admin/users"
                     navigate={navigate}
                 />
 
@@ -144,7 +143,7 @@ const Dashboard = () => {
 
 const CountCard = ({ title, count, icon, color, path, navigate }) => {
     return (
-        <motion.div 
+        <motion.div
             whileHover={{ y: -5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => navigate(path)}
@@ -161,7 +160,7 @@ const CountCard = ({ title, count, icon, color, path, navigate }) => {
                     </h3>
                 </div>
             </div>
-            
+
             <div className="mt-8 flex items-center justify-between border-t dark:border-gray-800 pt-4">
                 <span className="text-[10px] font-bold text-gray-400 group-hover:text-green-600 transition-colors uppercase">
                     View Details →

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../../../utils/api"; 
+import api from "../../../utils/api";
 import { Search, Tractor, Hammer, Clock, Eye, Trash2, Calendar, IndianRupee, MapPin, User, CheckCircle, Users } from "lucide-react";
 import { toast } from "react-toastify";
 
@@ -40,16 +40,17 @@ const BookingList = () => {
         if (!window.confirm("Are you sure you want to delete this record?")) return;
         try {
             let endpoint = "";
-            if (activeTab === "machines") endpoint = `/api/admin/delete-machine-booking/${id}`;
-            else if (activeTab === "labor") endpoint = `/api/admin/delete-labor-hire/${id}`;
-            else endpoint = `/api/labor/worker-groups/${id}`;
+            console.log(id)
+            if (activeTab === "machines") endpoint = `/api/machine-rental/delete-machine-booking/${id}`;
+            else if (activeTab === "labor") endpoint = `/api/labor/delete-worker/${id}`;
+            else endpoint = `/api/labor/delete-group/${id}`;
 
             await api.delete(endpoint);
-            
+
             if (activeTab === "machines") setMachineBookings(prev => prev.filter(item => item._id !== id));
             else if (activeTab === "labor") setLaborHires(prev => prev.filter(item => item._id !== id));
             else setWorkerGroups(prev => prev.filter(item => item._id !== id));
-            
+
             toast.success("Record removed");
         } catch (error) {
             toast.error("Failed to delete record");
@@ -82,12 +83,12 @@ const BookingList = () => {
         else data = workerGroups;
 
         return data.filter((item) => {
-            const matchesSearch = activeTab === "machines" 
+            const matchesSearch = activeTab === "machines"
                 ? (item.machineId?.name || "Machine").toLowerCase().includes(search.toLowerCase())
-                : activeTab === "labor" 
-                ? (item.workType || "").toLowerCase().includes(search.toLowerCase())
-                : (item.groupName || "").toLowerCase().includes(search.toLowerCase());
-            
+                : activeTab === "labor"
+                    ? (item.workType || "").toLowerCase().includes(search.toLowerCase())
+                    : (item.groupName || "").toLowerCase().includes(search.toLowerCase());
+
             const matchesFilter = statusFilter === "all" || item.status === statusFilter || (activeTab === "groups" && statusFilter === "all");
             return matchesSearch && matchesFilter;
         });
@@ -280,7 +281,7 @@ const BookingList = () => {
                                     <span className="text-gray-500 text-sm">Record ID</span>
                                     <span className="font-mono text-xs dark:text-white">{selectedItem.data._id}</span>
                                 </div>
-                                
+
                                 {selectedItem.type === 'machines' && (
                                     <>
                                         <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700/30 rounded-lg">

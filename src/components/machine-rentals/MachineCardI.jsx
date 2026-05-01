@@ -48,10 +48,10 @@ function MachineCardI({ machine }) {
                             </p>
                         </div>
 
-                        <p>Owner : {machine.machineOwner.username || 'Unknown'}</p>
+                        <p>Owner : {machine?.machineOwner?.username || 'Unknown'}</p>
                         <p>Contact :
                             <strong>
-                                +91 <a href={"tel:" + machine.machineOwner.MobileNum}>{machine.machineOwner.MobileNum}</a>
+                                +91 <a href={"tel:" + machine?.machineOwner?.MobileNum}>{machine?.machineOwner?.MobileNum}</a>
                             </strong></p>
 
                     </div>

@@ -69,7 +69,7 @@ const WeatherDetails = () => {
                     />
 
                     <h2 className="text-2xl font-semibold mt-3">
-                        {weather.location.city || weather.location.name}
+                        {weather.location.region || weather.location.name}, {weather.location.state || weather.location.country}
                     </h2>
 
                     <p className="text-gray-500 dark:text-gray-400">

@@ -60,7 +60,7 @@ const CropDetails = ({ crop }) => {
                             className="w-full h-full object-cover absolute inset-0"
                         />
                     </AnimatePresence>
-                    
+
                     {/* Slide Indicators */}
                     <div className="absolute top-4 right-6 flex gap-1.5 z-20">
                         {cropImages.map((_, idx) => (
