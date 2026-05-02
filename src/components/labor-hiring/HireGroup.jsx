@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import api from "../../utils/api";
 import { Calendar, Clock, CheckCircle } from "lucide-react";
 
-const HireGroup = ({ groupId, farmerId, skills = [], onSuccess }) => {
+const HireGroup = ({ groupId,workerId, farmerId, skills = [], onSuccess }) => {
     const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({ workType: "", startDate: "", days: 1 });
     const [customWork, setCustomWork] = useState(false);
@@ -23,6 +23,7 @@ const HireGroup = ({ groupId, farmerId, skills = [], onSuccess }) => {
 
             await api.post("/api/labor/hire", {
                 farmerId,
+                workerId,
                 groupId,
                 hireType: "group",
                 ...form,

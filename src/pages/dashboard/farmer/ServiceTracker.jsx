@@ -10,8 +10,8 @@ export const ServiceTracker = ({ bookings }) => (
                 <motion.div whileHover={{ x: 5 }} key={i} className="p-4 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
                     <div className="flex justify-between items-start mb-2">
                         <div>
-                            <p className="text-sm font-black text-gray-900 dark:text-white">{item.serviceName}</p>
-                            <p className="text-xs text-gray-500">Provider: {item.providerName}</p>
+                            <p className="text-sm font-black text-gray-900 dark:text-white">{item.workType ? item.workType : item.machineId.machineName}</p>
+                            <p className="text-xs text-gray-500">Provider: {item.hireType ? item.hireType : item.selectedParts?.map((part) => part).join(', ') }</p>
                         </div>
                         <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase ${item.status === 'Running' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
                             }`}>

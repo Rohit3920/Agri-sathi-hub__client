@@ -13,7 +13,6 @@ const StatusUpdate = ({ hireId }) => {
         const fetchHire = async () => {
             try {
                 const res = await api.get(`/api/labor/hire/${hireId}`);
-                console.log(res.data)
                 setHire(res.data);
             } catch (error) {
                 console.error(error);

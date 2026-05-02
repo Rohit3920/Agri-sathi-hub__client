@@ -80,7 +80,7 @@ export default function LocationModal({ isOpen, onClose, onConfirm, onDetect, t 
         navigator.geolocation.getCurrentPosition(
             (pos) => {
                 const { latitude, longitude } = pos.coords;
-                console.log(pos + "coordinates : " + pos.coords)
+                // console.log(pos + "coordinates : " + pos.coords)
 
                 setPosition({
                     lat: latitude,

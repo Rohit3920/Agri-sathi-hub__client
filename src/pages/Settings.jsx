@@ -147,8 +147,6 @@ const Settings = () => {
                 didOpen: () => { Swal.showLoading(); }
             });
 
-            console.log("Password Change Response:", userId, currentPassword, newPassword, confirmPassword);
-
             // 3. API Call
             const response = await api.put(`api/auth/change-password/${userId}`, {
                 currentPassword,

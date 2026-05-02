@@ -33,9 +33,6 @@ function MainMachineRentalPage({ userAddress }) {
                 setAvailableMachinesList(availableRes.data.data || availableRes.data);
                 setMachinesList(allRes.data.data || allRes.data);
                 setRentalMachines(rentedRes.data.data || rentedRes.data);
-
-                console.log('availableRes.data.data', availableRes.data.data)
-
                 setIsLoading(false);
             } catch (err) {
                 console.error(err);

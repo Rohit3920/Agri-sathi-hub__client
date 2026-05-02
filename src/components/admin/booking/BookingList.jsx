@@ -40,7 +40,6 @@ const BookingList = () => {
         if (!window.confirm("Are you sure you want to delete this record?")) return;
         try {
             let endpoint = "";
-            console.log(id)
             if (activeTab === "machines") endpoint = `/api/machine-rental/delete-machine-booking/${id}`;
             else if (activeTab === "labor") endpoint = `/api/labor/delete-worker/${id}`;
             else endpoint = `/api/labor/delete-group/${id}`;

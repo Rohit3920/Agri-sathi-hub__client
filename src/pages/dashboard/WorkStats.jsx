@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, Briefcase, Users } from 'lucide-react';
 
 export const WorkStats = ({ stats }) => {
+            // stats: { complete: completeWork, total: totalHireReq, group:  workerHireGroupList.length, individual: workerHireList.length},
     const cards = [
-        { label: "Works Done", value: stats.done || 0, icon: <CheckCircle2 />, color: "text-green-500" },
+        { label: "Works Done", value: stats.complete || 0, icon: <CheckCircle2 />, color: "text-green-500" },
         { label: "Total Assignments", value: stats.total || 0, icon: <Briefcase />, color: "text-blue-500" },
-        { label: "Group Size", value: stats.groupSize || "N/A", icon: <Users />, color: "text-purple-500" },
+        { label: "My Groups", value: stats.group || "N/A", icon: <Users />, color: "text-purple-500" },
+        { label: "Individual worker", value: stats.individual || 0, icon: <Briefcase />, color: "text-yellow-500" }
     ];
 
     return (

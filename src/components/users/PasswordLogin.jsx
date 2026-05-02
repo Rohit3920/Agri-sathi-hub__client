@@ -19,7 +19,7 @@ export default function PasswordLogin({ t }) {
             }
 
             const res = await api.post('/api/auth/login', { email: userInput, password });
-            console.log('Login response:', res.data);
+            // console.log('Login response:', res.data);
             const token = res.data.token;
             const userId = res.data._id;
             const userMode = res.data.userMode;

@@ -55,7 +55,7 @@ const CreateWorkerProfile = ({ userId }) => {
             const response = await api.post('/api/labor/worker/profile', payload);
 
             setMessage({ type: 'success', text: 'Profile updated successfully!' });
-            console.log("Response:", response.data);
+            // console.log("Response:", response.data);
             navigate('/dashboard'); // Redirect to dashboard after successful profile creation
         } catch (error) {
             setMessage({

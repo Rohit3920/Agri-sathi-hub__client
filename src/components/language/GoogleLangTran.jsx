@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 function GoogleLangTran() {
   const lang = localStorage.getItem("appLang") || "en";
-  console.log("GoogleLangTran Rendered with lang:", lang);
+  // console.log("GoogleLangTran Rendered with lang:", lang);
 
   useEffect(() => {
     // 1. Function to set the Google Translate Cookie

@@ -3,8 +3,6 @@ import React from "react";
 const EnvironmentalSettings = ({ isOpen, onClose, onSave, setManualModeForm, manualModeForm }) => {
     // const [manualModeForm, setManualModeForm] = useState(manualModeForm);
 
-    console.log("Initial form data:", manualModeForm);
-
     if (!isOpen) return null;
 
     const handleSubmit = (e) => {

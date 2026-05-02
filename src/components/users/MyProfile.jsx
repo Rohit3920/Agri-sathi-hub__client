@@ -17,7 +17,7 @@ function MyProfile() {
             // Fetch user data from the API
             api.get(`/api/auth/get-user/${userId}`)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     setUserData(res.data);
                 })
                 .catch(err => {

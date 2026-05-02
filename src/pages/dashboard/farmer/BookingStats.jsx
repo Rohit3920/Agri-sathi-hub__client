@@ -7,7 +7,7 @@ export const BookingStats = ({ stats }) => {
     const cards = [
         { label: "Active Rentals", value: stats.activeRentals || 0, icon: <Truck />, color: "text-blue-500" },
         { label: "Workers Hired", value: stats.workersHired || 0, icon: <Users />, color: "text-green-500" },
-        { label: "Total Spent", value: `₹${stats.totalSpent?.toLocaleString()}`, icon: <CreditCard />, color: "text-amber-500" },
+        { label: "Total booking ", value: stats.activeRentals + stats.workersHired, icon: <CreditCard />, color: "text-amber-500" },
     ];
 
     return (

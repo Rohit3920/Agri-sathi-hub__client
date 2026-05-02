@@ -95,7 +95,7 @@ const HireMachine = ({
                 totalDays,
                 totalCost
             });
-            console.log("Rental request response:", responce.data);
+            // console.log("Rental request response:", responce.data);
             toast.success("Rental request sent successfully!");
             onSuccess && onSuccess();
         } catch (err) {

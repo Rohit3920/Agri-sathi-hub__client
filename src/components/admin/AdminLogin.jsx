@@ -45,7 +45,6 @@ const AdminLogin = () => {
             });
 
             if (res.status === 200) {
-                console.log("Admin ", res.data);
                 sessionStorage.setItem("adminToken", res.data.token);
                 sessionStorage.setItem("isAdmin", "true");
                 navigate("/admin/dashboard");

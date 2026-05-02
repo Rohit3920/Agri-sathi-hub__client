@@ -166,7 +166,7 @@ const UpdateMachine = () => {
             location: formData.location, // Send the nested Location Object
         };
 
-        console.log("Data sent to API:", dataToSend);
+        // console.log("Data sent to API:", dataToSend);
 
         try {
             await api.put(`/api/machine-rental/update-machine-details/${machineId}`, { updates: dataToSend });

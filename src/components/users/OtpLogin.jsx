@@ -16,7 +16,7 @@ export default function OtpLogin({ t }) {
         const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
         setSentOtp(generatedOtp);
         setStep("verify");
-        console.log("Mock OTP:", generatedOtp);
+        // console.log("Mock OTP:", generatedOtp);
         toast.success(t('loginComponent.otp.OTP-sent-successfully'));
     };
 

@@ -9,7 +9,6 @@ const WeatherNav = ({ setData, setIsSettingsOpen }) => {
     const [error, setError] = useState(null);
     const [isScrolled, setIsScrolled] = useState(false);
 
-    console.log("WeatherNav Rendered - User:", user);
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -57,7 +56,6 @@ const WeatherNav = ({ setData, setIsSettingsOpen }) => {
         try {
             const params = lat ? `lat=${lat}&lon=${lon}` : `city=${city}`;
             const res = await api.get(`api/weather/forecast?${params}`);
-            console.log(res.data);
             setWeather(res.data);
             setData({ current: res.data.current, location: res.data.location }); // Pass current weather and location to parent
             setError(null);

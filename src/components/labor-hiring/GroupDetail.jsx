@@ -183,6 +183,7 @@ const GroupDetail = () => {
 
                             <HireGroup
                                 groupId={groupId}
+                                workerId={groupData?.leaderId?._id}
                                 farmerId={loggedInUserId}
                                 skills={skills}
                                 onSuccess={() => {

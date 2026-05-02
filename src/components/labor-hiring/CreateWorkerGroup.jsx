@@ -143,7 +143,7 @@ const CreateWorkerGroup = ({ leaderId }) => {
                         <button type="button" onClick={() => addField('skills')} className="mt-1 text-xs text-blue-600 font-bold hover:underline">+ Add Skill</button>
                     </div>
 
-                    <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    {/* <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Team Member IDs</label>
                         {formData.members.map((member, index) => (
                             <div key={index} className="flex gap-2 mb-2">
@@ -160,7 +160,7 @@ const CreateWorkerGroup = ({ leaderId }) => {
                             </div>
                         ))}
                         <button type="button" onClick={() => addField('members')} className="mt-1 text-xs text-indigo-600 font-bold hover:underline">+ Add Member ID</button>
-                    </div>
+                     </div> */}
 
                     <div>
                         <label className="block text-sm font-semibold text-gray-700">Group Wage Per Day</label>

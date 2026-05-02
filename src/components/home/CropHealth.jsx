@@ -1,7 +1,6 @@
 import React from "react";
 
 const CropHealth = ({ health }) => {
-    console.log("Crop Health Data:", health); // Debug log
     if (!health) return null;
 
     return (
