@@ -4,7 +4,6 @@ import WorkerCard from "../components/labor-hiring/WorkerCard";
 import LaborFilterNavbar from "../components/labor-hiring/LaborFilterNavbar";
 import api from "../utils/api.jsx";
 import { motion } from "framer-motion";
-import { useTrail, animated } from "@react-spring/web";
 import Footer from '../components/Footer.jsx';
 
 export default function LaborHire() {
@@ -34,7 +33,7 @@ export default function LaborHire() {
                 setWorkers(workerRes?.data.data || workerRes?.data || []);
                 setGroups(groupRes?.data.data || groupRes?.data || []);
             } catch (err) {
-                setError("Failed to load data. Please try again later.");
+                setError("Failed to load data. Please try again later." + err.message);
             } finally {
                 setIsLoading(false);
             }
@@ -113,25 +112,6 @@ export default function LaborHire() {
     const filteredWorkers = applyFilters(workers, "single");
     const filteredGroups = applyFilters(groups, "group");
 
-    // ✅ ANIMATION (USE FILTERED DATA)
-    const workerTrail = useTrail(filteredWorkers.length, {
-        from: { opacity: 0, transform: 'translateX(30px)' },
-        to: {
-            opacity: isLoading ? 0 : 1,
-            transform: isLoading ? 'translateX(30px)' : 'translateX(0px)'
-        },
-        config: { mass: 1, tension: 280, friction: 20 },
-    });
-
-    const groupTrail = useTrail(filteredGroups.length, {
-        from: { opacity: 0, scale: 0.9 },
-        to: {
-            opacity: isLoading ? 0 : 1,
-            scale: isLoading ? 0.9 : 1
-        },
-        delay: 300,
-    });
-
     // ✅ YOUR ORIGINAL SCROLL FUNCTION (UNCHANGED)
     const handleScroll = (ref, direction) => {
         if (ref.current) {
@@ -186,11 +166,28 @@ export default function LaborHire() {
 
                     <div ref={workerScrollRef} className="flex items-center overflow-x-auto pb-4 space-x-4 no-scrollbar scroll-smooth p-2">
                         {isLoading ? renderSkeletons() : (
-                            filteredWorkers.length > 0 ? workerTrail.map((style, index) => (
-                                <animated.div key={filteredWorkers[index]._id} style={style}>
-                                    <WorkerCard data={filteredWorkers[index]} type="single" />
-                                </animated.div>
-                            )) : <EmptyState message="No workers available" />
+                            filteredWorkers.length > 0 ? (
+                                <motion.div 
+                                    className="flex space-x-4"
+                                    initial="hidden"
+                                    animate="show"
+                                    variants={{
+                                        show: { transition: { staggerChildren: 0.08 } }
+                                    }}
+                                >
+                                    {filteredWorkers.map((item) => (
+                                        <motion.div
+                                            key={item._id}
+                                            variants={{
+                                                hidden: { opacity: 0, x: 30 },
+                                                show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 280, damping: 20 } }
+                                            }}
+                                        >
+                                            <WorkerCard data={item} type="single" />
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            ) : <EmptyState message="No workers available" />
                         )}
                     </div>
                 </motion.div>
@@ -206,11 +203,28 @@ export default function LaborHire() {
 
                     <div ref={groupScrollRef} className="flex items-center overflow-x-auto pb-4 space-x-4 no-scrollbar scroll-smooth p-2">
                         {isLoading ? renderSkeletons() : (
-                            filteredGroups.length > 0 ? groupTrail.map((style, index) => (
-                                <animated.div key={filteredGroups[index]._id} style={style}>
-                                    <WorkerCard data={filteredGroups[index]} type="group" />
-                                </animated.div>
-                            )) : <EmptyState message="No worker groups available" />
+                            filteredGroups.length > 0 ? (
+                                <motion.div 
+                                    className="flex space-x-4"
+                                    initial="hidden"
+                                    animate="show"
+                                    variants={{
+                                        show: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } }
+                                    }}
+                                >
+                                    {filteredGroups.map((item) => (
+                                        <motion.div
+                                            key={item._id}
+                                            variants={{
+                                                hidden: { opacity: 0, scale: 0.9 },
+                                                show: { opacity: 1, scale: 1 }
+                                            }}
+                                        >
+                                            <WorkerCard data={item} type="group" />
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            ) : <EmptyState message="No worker groups available" />
                         )}
                     </div>
                 </motion.div>

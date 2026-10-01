@@ -7,13 +7,13 @@ const WeatherNav = ({ setData, setIsSettingsOpen }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false)
 
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
-                    if(user.location.coordinates[0] === 0 && user.location.coordinates[1] === 0) {
+                    if(user?.location?.coordinates[0] === 0 && user?.location?.coordinates[1] === 0) {
                         fetchWeather(null, pos.coords.latitude, pos.coords.longitude);
                     } else {
                         fetchWeather(null, user.location?.coordinates[1], user.location?.coordinates[0]);
@@ -21,11 +21,11 @@ const WeatherNav = ({ setData, setIsSettingsOpen }) => {
                 },
                 () => {
                     setError("Location access denied. Showing default: Mumbai");
-                    fetchWeather("Mumbai");
+                    fetchWeather(user.address?.[1]?.district || user.address?.[0]?.district);
                 }
             );
         } else {
-            fetchWeather("Mumbai");
+            fetchWeather(user.address?.[1]?.district || user.address?.[0]?.district);
         }
     }, [user]);
 
