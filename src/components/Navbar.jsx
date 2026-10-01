@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Moon, Sun } from "lucide-react";
 import './language/i18n';
 import { useTranslation } from 'react-i18next';
-import LanguageChange from './language/languageChange';
+import LanguageChange from './language/LanguageChange';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function Navbar({ user }) {
